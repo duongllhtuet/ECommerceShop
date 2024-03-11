@@ -32,9 +32,7 @@ Những hướng dẫn này sẽ giúp bạn có một bản sao của SmartQuiz
 ### Cài Đặt
 
 1. Clone dự án về máy của bạn: `git clone https://github.com/yourusername/SmartQuizDeck.git`
-2. Di chuyển vào thư mục dự án: `cd SmartQuizDeck`
-3. Cài đặt các dependencies: `npm install`
-4. Chạy ứng dụng: `npm start`
+2. Sẽ được update tiếp, trong quá trình làm dự án
 
 ## Usage
 
