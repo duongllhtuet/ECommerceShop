@@ -1,6 +1,6 @@
-# SmartQuizDeck
+# ECommerceShop
 
-SmartQuizDeck là một ứng dụng giáo dục giúp người dùng tạo và quản lý bộ flashcard thông minh cho việc học tập hiệu quả.
+ECommerceShop là một dự án website bán hàng trực tuyến, được thiết kế để cung cấp trải nghiệm mua sắm thuận tiện và đa dạng cho người dùng.
 
 ## Thành Viên
 
@@ -21,22 +21,26 @@ SmartQuizDeck là một ứng dụng giáo dục giúp người dùng tạo và 
 
 ## Bắt Đầu
 
-Những hướng dẫn này sẽ giúp bạn có một bản sao của SmartQuizDeck chạy trên máy cục bộ của bạn để phát triển và kiểm thử.
+Hướng dẫn này sẽ giúp bạn có một bản sao của ECommerceShop chạy trên máy cục bộ của bạn để phát triển và kiểm thử.
 
 ### Yêu Cầu
 
+- Node.js
+- MongoDB
 - HTML
-- JavaScript
 - CSS
+- JavaScript
 
 ### Cài Đặt
 
-1. Clone dự án về máy của bạn: `git clone https://github.com/yourusername/SmartQuizDeck.git`
-2. Sẽ được update tiếp, trong quá trình làm dự án
+1. Clone dự án về máy của bạn: `git clone https://github.com/yourusername/ECommerceShop.git`
+2. Cài đặt các dependencies: `npm install`
+3. Khởi động server: `npm start`
+4. Truy cập vào `http://localhost:3000` trong trình duyệt web của bạn.
 
 ## Usage
 
-Hướng dẫn sử dụng cơ bản và ví dụ cách tích hợp SmartQuizDeck vào các dự án khác.
+Hướng dẫn sử dụng cơ bản và các chức năng chính của ECommerceShop.
 
 ## Đóng Góp
 
@@ -44,22 +48,24 @@ Vui lòng đọc [hướng dẫn đóng góp](CONTRIBUTING.md) để biết thê
 
 ## Bản Phát Hành
 
-Liệt kê và mô tả các phiên bản phát hành của SmartQuizDeck.
+Liệt kê và mô tả các phiên bản phát hành của ECommerceShop.
 
 ## Tác Giả
 
 - Hồ Lê Dương
+  - MSSV: 22022641
   - Email: 22022641@vnu.edu.vn
   - GitHub: [NoBiTaD](https://github.com/duongllhtuet)
 
 - Phạm Chiến
-  - Email: 22022641@vnu.edu.vn
+  - MSSV: 22022634
+  - Email: 22022634@vnu.edu.vn
   - GitHub: [phamchien](https://github.com/phamchien)
 
 - Bùi Trọng Anh
   - MSSV: 22022572
   - Email: 22022572@vnu.edu.vn
-  - GitHub:
+  - GitHub: 
 
 ## Giấy Phép
 
@@ -67,8 +73,4 @@ Dự án này được cấp phép theo [Tên Giấy Phép](LICENSE) - xem tệp
 
 ## Liên Hệ
 
-Nếu bạn có bất kỳ câu hỏi hoặc đề xuất, hãy liên hệ qua email của 22022641@vnu.edu.vn
-
-## Tài Liệu Tham Khảo
-
-Thêm các liên kết đến tài liệu tham khảo, bài viết, và tài nguyên hữu ích khác.
+Nếu bạn có bất kỳ câu hỏi hoặc đề xuất, hãy liên hệ qua email của 22022641@vnuvn.edu.vn.
