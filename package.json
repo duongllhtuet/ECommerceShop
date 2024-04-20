@@ -1,0 +1,36 @@
+{
+  "name": "ecommerceshop",
+  "version": "1.0.0",
+  "description": "ECommerceShop là một dự án website bán hàng trực tuyến, được thiết kế để cung cấp trải nghiệm mua sắm thuận tiện và đa dạng cho người dùng.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duongllhtuet/ECommerceShop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duongllhtuet/ECommerceShop/issues"
+  },
+  "homepage": "https://github.com/duongllhtuet/ECommerceShop#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.0",
+    "method-override": "^3.0.0",
+    "mongodb": "6.5",
+    "mongoose": "^8.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
