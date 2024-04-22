@@ -13,7 +13,7 @@ const app = express()
 //db connection
 connectDB()
 
-app.use(express.static('public'))
+app.use(express.static('assets'))
 
 //templating Engine
 app.use(expressLayouts)
