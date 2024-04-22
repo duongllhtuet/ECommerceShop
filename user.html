@@ -521,7 +521,8 @@
                 <div class="User-Infomation__Overview">
                     Quản lý thông tin hồ sơ để bảo mật tài khoản
                 </div>
-                <form class="User-Infomation__Description">
+                <form>
+                <div class="User-Infomation__Description">
                     <div class="User-Infomation__Description--UserName1">
                         Tên đăng nhập
                     </div>
@@ -570,7 +571,7 @@
                         Ngày sinh
                     </div>
                     <div class="User-Infomation__Description--Date2">
-                        <select id="day" name="day"></select>
+                        <select id="day" name="day" class="Select-Date"></select>
 
                         <select id="month" name="month"></select>
 
@@ -632,29 +633,15 @@
                           </script>
                     </div>
                     <div class="User-Infomation__Description--Save">
-                        <input type="submit" value="Lưu"> 
+                        <button type="submit">Lưu </button>
                     </div>
+                </div>
                 </form>
                 <div class="User-Infomation__Update-Avatar">
-                    <form action="#" id="avatarForm">
-                        <img src="#" id="avatarPreview" alt="Ảnh đại diện" style="max-width: 200px; max-height: 200px;">
-                        <input type="file" accept="image/*" id="avatarInput" onchange="previewAvatar(event)">
+                    <form>
+                        <img src="https://i.pinimg.com/564x/9c/de/2f/9cde2fb8cae38fb9f1333eb2ae0d01d4.jpg" class="User-Infomation__Update-Avatar--Avatar">
+                        <button type="file" accept="image/*">Chọn ảnh</button>
                     </form>
-
-                    <script>
-                        function previewAvatar(event) {
-                            const input = event.target;
-                            const preview = document.getElementById('avatarPreview');
-                            
-                            if (input.files && input.files[0]) {
-                                const reader = new FileReader();
-                                reader.onload = function(e) {
-                                    preview.src = e.target.result;
-                                }
-                                reader.readAsDataURL(input.files[0]); 
-                            }
-                        }
-                    </script>
                 </div>
             </div>
         </div>

@@ -190,7 +190,7 @@ input[type="radio"] {
     padding-top: 13px;
 }
 
-.User-Infomation__Description--Save input[type="submit"] {
+.User-Infomation__Description--Save button {
     background: #ee4d2d;
     color: #fff;
     height: 40px;
@@ -198,6 +198,32 @@ input[type="radio"] {
     border: none;
 }
 
+
+.User-Infomation__Description--Save button:hover {
+    background: #eb9382;
+}
+
 .User-Infomation__Update-Avatar {
-    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.User-Infomation__Update-Avatar--Avatar {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50px;
+    display: block;
+}
+
+.User-Infomation__Update-Avatar button {
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    font-size: 1.5rem;
+    height: 35px;
+    margin-top: 20px;
+    width: auto;
+    padding: 2px 18px;
+    background-color: #fff;
 }
