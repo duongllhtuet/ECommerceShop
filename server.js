@@ -24,7 +24,7 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const session = require('express-session');
 
-app.set('views', __dirname + '/views') 
+app.set('views', __dirname + '/views')
 app.use(methodOverride('_method'))
 app.use(express.json())
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
@@ -51,4 +51,4 @@ app.use('/user', userRouter)
 
 app.listen(5000 || process.env.PORT, () => {
     console.log("app listening on port 3000")    
-})
+}) 

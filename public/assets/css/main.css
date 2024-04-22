@@ -1,4 +1,6 @@
-@import 'base.css';
+.app {
+    overflow: hidden;   
+}
 
 .header {
     height: var(--header-height);
@@ -377,7 +379,6 @@
 
 .Auth-Form__Switch--Btn{
     color: var(--primary-color);
-    text-decoration: none;
 }
 
 .Auth-Form__Input {
@@ -480,6 +481,16 @@
     margin: 0 8px;
 }
 
+.header__mobile--search {
+    padding: 0 12px;
+    display: none;
+}
+
+.header__mobile--search--icon {
+    font-size: 2.6rem;
+    color: var(--white-color);
+}
+
 .Header__Logo {
     width: 200px;
 }
@@ -487,6 +498,12 @@
 .Header__Logo--Link {
     text-decoration: none;
     color: transparent;
+    display: block;
+    line-height: 0;
+}
+
+.header__search--checkbox:checked ~ .Header__Search{
+    display: flex;
 }
 
 .Header__Logo--Img {
@@ -515,6 +532,7 @@
     display: inline-block;
     padding: 0 12px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .Header__Cart--Wrap:hover .Header__Cart--List {
@@ -538,7 +556,7 @@
     box-shadow: 0 1px 3.125rem rgba(0, 0, 0, 0.2);
     animation: fadeIn ease-in 0.2s;
     display: none;
-    z-index: 1;
+    z-index: 2;
 }
 
 .Header__Cart--List::before {
@@ -601,7 +619,7 @@
 .Header__Cart--List--Item {
     padding-left: 0;
     list-style: none;
-    height: 56vh;
+    max-height: 56vh;
     overflow-y: auto;
 }
 
@@ -834,7 +852,7 @@
     box-shadow: 0 1px 5px rgb(189, 189, 189);
     display: none;
     overflow: hidden;
-    z-index: 1;
+    z-index: 2;
 }
 
 .Header__Search--History--Heading {
@@ -865,6 +883,55 @@
     color: var(--text-color);
     line-height: 38px;
     display: block;
+}
+
+/* Header sort bar */
+.header__sort--bar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: var(--header-sort-bar-height);
+    background-color: var(--white-color);
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    display: none;
+}
+
+.header__sort--item {
+    flex: 1;
+}
+
+.header__sort--item--active .header__sort--link {
+    color: var(--primary-color);
+}
+
+.header__sort--link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    display: block;
+    height: 100%;
+    line-height: var(--header-sort-bar-height);
+    text-align: center;
+    position: relative;
+    color: var(--text-color);
+}
+
+.header__sort--link::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 60%;
+    border-left: 1px solid #e5e5e5;
+    transform: translateY(-50%);
+}
+
+.header__sort--link:first-child .header__sort--link {
+    display: none;
 }
 
 
@@ -941,6 +1008,64 @@
 .Category--Item__Link:hover {
     right: -4px;
     color: var(--primary-color);
+}
+
+/* Moblie Category */
+.mobile--category {
+    display: none;
+}
+
+.mobile--category__list {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Hiden scroll */
+.mobile--category__list::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile--category__item {
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.mobile--category__item:nth-of-type(3n + 1) .mobile--category__link {
+    background-color: #87AFD8;
+}
+
+.mobile--category__item:nth-of-type(3n + 2) .mobile--category__link {
+    background-color: #76C9BD;
+}
+
+.mobile--category__item:nth-of-type(3n + 3) .mobile--category__link {
+    background-color: #88CF81;
+}
+
+.mobile--category__link {
+    --line-height: 2rem;
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    line-height: var(--line-height);
+    max-height: calc(var(--line-height) * 2);
+    /* .... */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    text-align: center;
+    width: 110px;
+    border-radius: 4px;
+    font-weight: 300;
+
+    user-select: none;
+
+    padding: 0 6px;
 }
 
 /* Home sort - filter */
@@ -1026,6 +1151,7 @@
 
 .Home--Product__Pagination {
     margin: 48px 0 32px 0;
+    padding-left: 0;
 }
 
 .Home--Product--Items {

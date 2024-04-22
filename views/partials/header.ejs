@@ -1,7 +1,6 @@
 <header class="header">
-    <div class="Grid">
-        <nav class="header__navbar">
-            <!-- không sử dụng database -->
+    <div class="grid wide">
+        <nav class="header__navbar hide--on--mobile--tablet">
             <ul class="header__navbar--list">
                 <li class="header__navbar--item header__navbar--item--separate header__navbar--has-qr">
                     Vào cửa hàng trên ứng dụng UET-Shop
@@ -110,23 +109,23 @@
                 <li class="header__navbar--item  Header__Navbar--User">
                     <img src="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/132638300_862171704593398_4583289042826908281_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ODbyFkdkGEkAb7ADLH_&_nc_ht=scontent.fhan14-3.fna&oh=00_AfC_MBLNPa4y0Bn33YDiQzyA55GZhfdSq9So-Z3DKvgUQA&oe=66376F19" alt="" class="Header__Navbar--User--Img">
 
-                    <% if (user) { %>
-                        <span class="Header__Navbar--User--Name"> <%= user.email %> </span>
-                    <% } else { %>
-                        <!-- <span class="Header__Navbar--User--Name"> đăng nhập </span> -->
-                    <% } %>
+                    <span class="Header__Navbar--User--Name">Phạm Chiến cắt đầu moi</span>
 
                     <ul class="Header__Navbar--User--Menu">
                         <li class="Header__Navbar--User--Item">
-                            <a href="/user/profile">Tài khoản của tôi</a>
+                            <a href="">Tài khoản của tôi</a>
                         </li>
 
                         <li class="Header__Navbar--User--Item">
-                            <a href="/user/purchase">Đơn mua</a>
+                            <a href="">Địa chỉ của tôi</a>
+                        </li>
+
+                        <li class="Header__Navbar--User--Item">
+                            <a href="">Đơn mua</a>
                         </li>
 
                         <li class="Header__Navbar--User--Item Header__Navbar--User--Item--Separate">
-                            <a href="/user/login">Đăng xuất</a>
+                            <a href="">Đăng xuất</a>
                         </li>
                     </ul>
                 </li>
@@ -136,7 +135,11 @@
 
         <!-- Header With Search -->
         <div class="Header__With--Search">
-            <div class="Header__Logo">
+            <label for="mobile--search--checkbox" class="header__mobile--search">
+                <i class="header__mobile--search--icon fa-solid fa-magnifying-glass"></i>
+            </label>
+
+            <div class="Header__Logo hide--on--tablet">
                 <a href="/" class="Header__Logo--Link">
                     <svg viewBox="0 0 192 65" class="Header__Logo--Img">
                         <g fill-rule="evenodd">
@@ -148,6 +151,8 @@
                     </svg>
                 </a>
             </div>
+            
+            <input type="checkbox" hidden id="mobile--search--checkbox" class="header__search--checkbox">
 
             <div class="Header__Search">
                 <div class="Header__Search--Input--Wrap">
@@ -264,6 +269,195 @@
 
                                 </div>
                             </li>
+
+                            <li class="Header__Cart--Item">
+                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lt127befjw78ce_tn" alt="" class="Header__Cart--Img">
+
+                                <div class="Header__Cart--Item--Info">
+                                    <div class="Header__Cart--Item--Heading">
+                                        <h5 class="Header__Cart--Item--Name">Bộ kem đặc trị vùng mắt O la ha ha</h5>
+
+                                        <div class="Header__Cart--Item--Price--Wrap">
+                                            <span class="Header__Cart--Item--Price">2.000.000đ</span>
+                                        
+                                            <span class="Header__Cart--Item--Multiply">x</span>
+
+                                            <span class="Header__Cart--Item--Qnt">2</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="Header__Cart--Item--Body">
+                                        <span class="Header__Cart--Item--Description">
+                                            Phân loại: Bạc
+                                        </span>
+                                        
+                                        <span class="Header__Cart--Item--Remove">Xóa</span>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <li class="Header__Cart--Item">
+                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lt127befjw78ce_tn" alt="" class="Header__Cart--Img">
+
+                                <div class="Header__Cart--Item--Info">
+                                    <div class="Header__Cart--Item--Heading">
+                                        <h5 class="Header__Cart--Item--Name">Bộ kem đặc trị vùng mắt O la ha ha Bộ kem đặc trị vùng mắt O la ha ha Bộ kem đặc trị vùng mắt O la ha ha Bộ kem đặc trị vùng mắt O la ha ha Bộ kem đặc trị vùng mắt O la ha ha</h5>
+
+                                        <div class="Header__Cart--Item--Price--Wrap">
+                                            <span class="Header__Cart--Item--Price">2.000.000đ</span>
+                                        
+                                            <span class="Header__Cart--Item--Multiply">x</span>
+
+                                            <span class="Header__Cart--Item--Qnt">2</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="Header__Cart--Item--Body">
+                                        <span class="Header__Cart--Item--Description">
+                                            Phân loại: Bạc
+                                        </span>
+
+                                        <span class="Header__Cart--Item--Remove">Xóa</span>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <li class="Header__Cart--Item">
+                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lt127befjw78ce_tn" alt="" class="Header__Cart--Img">
+
+                                <div class="Header__Cart--Item--Info">
+                                    <div class="Header__Cart--Item--Heading">
+                                        <h5 class="Header__Cart--Item--Name">Bộ kem đặc trị vùng mắt O la ha ha</h5>
+
+                                        <div class="Header__Cart--Item--Price--Wrap">
+                                            <span class="Header__Cart--Item--Price">2.000.000đ</span>
+                                        
+                                            <span class="Header__Cart--Item--Multiply">x</span>
+
+                                            <span class="Header__Cart--Item--Qnt">2</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="Header__Cart--Item--Body">
+                                        <span class="Header__Cart--Item--Description">
+                                            Phân loại: Bạc
+                                        </span>
+                                        
+                                        <span class="Header__Cart--Item--Remove">Xóa</span>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <li class="Header__Cart--Item">
+                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lt127befjw78ce_tn" alt="" class="Header__Cart--Img">
+
+                                <div class="Header__Cart--Item--Info">
+                                    <div class="Header__Cart--Item--Heading">
+                                        <h5 class="Header__Cart--Item--Name">Bộ kem đặc trị vùng mắt O la ha ha</h5>
+
+                                        <div class="Header__Cart--Item--Price--Wrap">
+                                            <span class="Header__Cart--Item--Price">2.000.000đ</span>
+                                        
+                                            <span class="Header__Cart--Item--Multiply">x</span>
+
+                                            <span class="Header__Cart--Item--Qnt">2</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="Header__Cart--Item--Body">
+                                        <span class="Header__Cart--Item--Description">
+                                            Phân loại: Bạc
+                                        </span>
+                                        
+                                        <span class="Header__Cart--Item--Remove">Xóa</span>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <li class="Header__Cart--Item">
+                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lt127befjw78ce_tn" alt="" class="Header__Cart--Img">
+
+                                <div class="Header__Cart--Item--Info">
+                                    <div class="Header__Cart--Item--Heading">
+                                        <h5 class="Header__Cart--Item--Name">Bộ kem đặc trị vùng mắt O la ha ha</h5>
+
+                                        <div class="Header__Cart--Item--Price--Wrap">
+                                            <span class="Header__Cart--Item--Price">2.000.000đ</span>
+                                        
+                                            <span class="Header__Cart--Item--Multiply">x</span>
+
+                                            <span class="Header__Cart--Item--Qnt">2</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="Header__Cart--Item--Body">
+                                        <span class="Header__Cart--Item--Description">
+                                            Phân loại: Bạc
+                                        </span>
+
+                                        <span class="Header__Cart--Item--Remove">Xóa</span>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <li class="Header__Cart--Item">
+                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lt127befjw78ce_tn" alt="" class="Header__Cart--Img">
+
+                                <div class="Header__Cart--Item--Info">
+                                    <div class="Header__Cart--Item--Heading">
+                                        <h5 class="Header__Cart--Item--Name">Bộ kem đặc trị vùng mắt O la ha ha</h5>
+
+                                        <div class="Header__Cart--Item--Price--Wrap">
+                                            <span class="Header__Cart--Item--Price">2.000.000đ</span>
+                                        
+                                            <span class="Header__Cart--Item--Multiply">x</span>
+
+                                            <span class="Header__Cart--Item--Qnt">2</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="Header__Cart--Item--Body">
+                                        <span class="Header__Cart--Item--Description">
+                                            Phân loại: Bạc
+                                        </span>
+                                        
+                                        <span class="Header__Cart--Item--Remove">Xóa</span>
+                                    </div>
+
+                                </div>
+                            </li>
+
+                            <li class="Header__Cart--Item">
+                                <img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lt127befjw78ce_tn" alt="" class="Header__Cart--Img">
+
+                                <div class="Header__Cart--Item--Info">
+                                    <div class="Header__Cart--Item--Heading">
+                                        <h5 class="Header__Cart--Item--Name">Bộ kem đặc trị vùng mắt O la ha ha</h5>
+
+                                        <div class="Header__Cart--Item--Price--Wrap">
+                                            <span class="Header__Cart--Item--Price">2.000.000đ</span>
+                                        
+                                            <span class="Header__Cart--Item--Multiply">x</span>
+
+                                            <span class="Header__Cart--Item--Qnt">2</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="Header__Cart--Item--Body">
+                                        <span class="Header__Cart--Item--Description">
+                                            Phân loại: Bạc
+                                        </span>
+                                        
+                                        <span class="Header__Cart--Item--Remove">Xóa</span>
+                                    </div>
+
+                                </div>
+                            </li>
                         </ul>
 
                         <a href="#" class="Btn Btn--Primary Header__Cart--View--Cart">Xem giỏ hàng</a>
@@ -273,4 +467,22 @@
             </div>
         </div>
     </div>
+
+    <ul class="header__sort--bar">
+        <li class="header__sort--item">
+            <a href="" class="header__sort--link">Liên quan</a>
+        </li>
+
+        <li class="header__sort--item header__sort--item--active">
+            <a href="" class="header__sort--link header__sort--item--active">Mới nhất</a>
+        </li>
+
+        <li class="header__sort--item">
+            <a href="" class="header__sort--link">Bán chạy</a>
+        </li>
+
+        <li class="header__sort--item">
+            <a href="" class="header__sort--link">Giá</a>
+        </li>
+    </ul>
 </header>

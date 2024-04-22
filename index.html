@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
@@ -11,14 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./assets/css/base.css">
-    <link rel="stylesheet" href="./public/assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.5.1-web/css/all.min.css">
 </head>
 <body>
     <div class="app">
         <header class="header">
-            <div class="Grid">
-                <nav class="header__navbar">
+            <div class="grid wide">
+                <nav class="header__navbar hide--on--mobile--tablet">
                     <ul class="header__navbar--list">
                         <li class="header__navbar--item header__navbar--item--separate header__navbar--has-qr">
                             Vào cửa hàng trên ứng dụng UET-Shop
@@ -153,7 +156,11 @@
 
                 <!-- Header With Search -->
                 <div class="Header__With--Search">
-                    <div class="Header__Logo">
+                    <label for="mobile--search--checkbox" class="header__mobile--search">
+                        <i class="header__mobile--search--icon fa-solid fa-magnifying-glass"></i>
+                    </label>
+
+                    <div class="Header__Logo hide--on--tablet">
                         <a href="/" class="Header__Logo--Link">
                             <svg viewBox="0 0 192 65" class="Header__Logo--Img">
                                 <g fill-rule="evenodd">
@@ -165,6 +172,8 @@
                             </svg>
                         </a>
                     </div>
+                    
+                    <input type="checkbox" hidden id="mobile--search--checkbox" class="header__search--checkbox">
 
                     <div class="Header__Search">
                         <div class="Header__Search--Input--Wrap">
@@ -479,12 +488,30 @@
                     </div>
                 </div>
             </div>
+
+            <ul class="header__sort--bar">
+                <li class="header__sort--item">
+                    <a href="" class="header__sort--link">Liên quan</a>
+                </li>
+
+                <li class="header__sort--item header__sort--item--active">
+                    <a href="" class="header__sort--link header__sort--item--active">Mới nhất</a>
+                </li>
+
+                <li class="header__sort--item">
+                    <a href="" class="header__sort--link">Bán chạy</a>
+                </li>
+
+                <li class="header__sort--item">
+                    <a href="" class="header__sort--link">Giá</a>
+                </li>
+            </ul>
         </header>
 
         <div class="App__Container">
-            <div class="Grid">
-                <div class="Grid__Row App_Content">
-                    <div class="Grid__Column--2">
+            <div class="grid wide">
+                <div class="row sm--gutter App_Content">
+                    <div class="col l-2 m-0 c-0">
                         <nav class="Category">         
                             <h3 class="Category__Heading">
                                 Danh mục
@@ -506,8 +533,8 @@
                         </nav>
                     </div>
     
-                    <div class="Grid__Column--10">
-                        <div class="Home--Filter">
+                    <div class="col l-10 m-12 c-12">
+                        <div class="Home--Filter hide--on--mobile--tablet">
                             <span class="Home--Filter__Label">Sắp xếp theo</span>
 
                             <button class="Home--Filter__Btn Btn">Phổ biến</button>
@@ -549,10 +576,62 @@
                                 </div>
                             </div>
                         </div>
-                        
+
+                        <nav class="mobile--category">
+                            <ul class="mobile--category__list">
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ & Thiết bị tiện ích giúp ích cho mọi nhà hâhhhahahaha</a>
+                                </li>
+
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ & Thiết bị tiện ích</a>
+                                </li>
+
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ & Thiết bị tiện ích</a>
+                                </li>
+
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ & Thiết bị tiện ích</a>
+                                </li>
+
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ & Thiết bị tiện ích</a>
+                                </li>
+
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ $ Thiết bị tiện ích</a>
+                                </li>
+
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ $ Thiết bị tiện ích</a>
+                                </li>
+
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ $ Thiết bị tiện ích</a>
+                                </li>
+
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ $ Thiết bị tiện ích</a>
+                                </li>
+
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ $ Thiết bị tiện ích</a>
+                                </li>
+
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ $ Thiết bị tiện ích</a>
+                                </li>
+
+                                <li class="mobile--category__item">
+                                    <a href="" class="mobile--category__link">Dụng cụ $ Thiết bị tiện ích</a>
+                                </li>
+                            </ul>
+                        </nav>
+
                         <div class="Home--Products">
-                            <div class="Grid__Row">
-                                <div class="Grid__Column--2--4">
+                            <div class="row sm--gutter">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -603,7 +682,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -654,7 +733,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -705,7 +784,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -756,7 +835,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -807,7 +886,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -858,7 +937,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -909,7 +988,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -960,7 +1039,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -1011,7 +1090,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -1062,7 +1141,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -1113,7 +1192,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -1164,7 +1243,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -1215,7 +1294,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -1266,7 +1345,7 @@
                                     </a>
                                 </div>
 
-                                <div class="Grid__Column--2--4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- Product Item -->
                                     <a class="Home--Product--Items" href="#">
                                         <div class="Home--Product--Item__Img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn);"></div>
@@ -1366,9 +1445,9 @@
         </div>
 
         <footer class="Footer">
-            <div class="Grid">
-                <div class="Grid__Row">
-                    <div class="Grid__Column--2--4">
+            <div class="grid wide footer__content">
+                <div class="row">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="Footer__Heading">
                             Chăm sóc khách hàng
                         </h3>
@@ -1394,7 +1473,7 @@
                         </ul>
                     </div>
     
-                    <div class="Grid__Column--2--4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="Footer__Heading">
                             Giới thiệu
                         </h3>
@@ -1421,7 +1500,7 @@
                         </ul>
                     </div>
     
-                    <div class="Grid__Column--2--4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="Footer__Heading">
                             Danh mục
                         </h3>
@@ -1447,7 +1526,7 @@
                         </ul>
                     </div>
     
-                    <div class="Grid__Column--2--4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="Footer__Heading">
                             Theo dõi
                         </h3>
@@ -1476,7 +1555,7 @@
                         </ul>
                     </div>
     
-                    <div class="Grid__Column--2--4">
+                    <div class="col l-2-4 m-8 c-12">
                         <h3 class="Footer__Heading">
                             Vào cửa hàng trên ứng dụng
                         </h3>
@@ -1499,7 +1578,7 @@
             </div>
 
             <div class="Footer__Bottom">
-                <div class="Grid">
+                <div class="grid wide">
                     <p class="Footer__Text">
                         © 2024 - Bản quyền thuộc về Công ty UET-Shop
                     </p>
@@ -1508,119 +1587,5 @@
         </footer>
 
     </div>
-
-    <!-- Modal Layout-->
-    <!-- <div class="Modal">
-        <div class="Modal_Overlay">
-
-        </div>
-        <div class="Modal__Body"> -->
-            <!-- Register Form-->
-            <!-- <div class="Auth-Form">
-                <div class="Auth-Form__Container">
-                    <div class="Auth-Form__Header">
-                        <h3 class="Auth-Form__Heading">Đăng ký</h3>
-
-                        <span class="Auth-Form__Switch--Btn">Đăng nhập</span>
-                    </div>
-
-                    <div class="Autho-Form__Form">
-                        <div class="Auth-Form__Group">
-                            <input type="text" class="Auth-Form__Input" placeholder="Email của bạn">
-                        </div>
-
-                        <div class="Auth-Form__Group">
-                            <input type="password" class="Auth-Form__Input" placeholder="Mật khẩu của bạn">
-                        </div>
-
-                        <div class="Auth-Form__Group">
-                            <input type="password" class="Auth-Form__Input" placeholder="Nhập lại mật khẩu của bạn">
-                        </div>
-                    </div>
-
-                    <div class="Auth-Form__Aside">
-                        <p class="Auth-Form__Policy--Text">
-                            Bằng việc đăng kí, bạn đã đồng ý với UET-Shop về
-                            
-                            <a href="" class="Auth-Form__Text--Link">Điều khoản dịch vụ</a> &
-                            
-                            <a href="" class="Auth-Form__Text--Link">Chính sách bảo mật</a>
-                        </p>
-                    </div>
-
-                    <div class="Auth-Form__Controls">
-                        <button class="Btn Auth-Form__Controls--Back Btn--Normal">TRỞ LẠI</button>
-                        <button class="Btn Btn--Primary">ĐĂNG KÝ</button>
-                    </div>
-                </div>
-
-                <div class="Auth-Form__Socials">
-                    <a href="" class="Btn Btn__With--Icon Auth-Form__Socials--Facebook">
-                        <i class="fa-brands fa-square-facebook Btn__Size--s Auth-Form__Socials--Icon"></i>
-                        <span class="Auth-Form__Socials--Tittle">
-                            Kết nối với Facebook
-                        </span>
-                    </a>
-
-                    <a href="" class="Btn Btn__With--Icon Auth-Form__Socials--Google">
-                        <i class="fa-brands fa-google Btn__Size--s Auth-Form__Socials--Icon"></i>
-                        <span class="Auth-Form__Socials--Tittle">
-                            Kết nối với Google
-                        </span>
-                    </a>
-                </div>
-            </div> -->
-
-            <!-- Login Form-->
-            <!-- <div class="Auth-Form">
-                <div class="Auth-Form__Container">
-                    <div class="Auth-Form__Header">
-                        <h3 class="Auth-Form__Heading">Đăng nhập</h3>
-
-                        <span class="Auth-Form__Switch--Btn">Đăng ký</span>
-                    </div>
-
-                    <div class="Autho-Form__Form">
-                        <div class="Auth-Form__Group">
-                            <input type="text" class="Auth-Form__Input" placeholder="Email của bạn">
-                        </div>
-
-                        <div class="Auth-Form__Group">
-                            <input type="password" class="Auth-Form__Input" placeholder="Mật khẩu của bạn">
-                        </div>
-                    </div>
-
-                    <div class="Auth-Form__Aside">
-                        <div class="Auth-Form__Help">
-                            <a href="" class="Auth-Form__Help--Link Auth-Form__Help--Forgot">Quên mật khẩu</a>
-                            <span class="Auth-Form__Help--Separate"></span>
-                            <a href="" class="Auth-Form__Help--Link">Cần trợ giúp?</a>
-                        </div>
-                    </div>
-
-                    <div class="Auth-Form__Controls">
-                        <button class="Btn Auth-Form__Controls--Back Btn--Normal">TRỞ LẠI</button>
-                        <button class="Btn Btn--Primary">ĐĂNG NHẬP</button>
-                    </div>
-                </div>
-
-                <div class="Auth-Form__Socials">
-                    <a href="" class="Btn Btn__With--Icon Auth-Form__Socials--Facebook">
-                        <i class="fa-brands fa-square-facebook Btn__Size--s Auth-Form__Socials--Icon"></i>
-                        <span class="Auth-Form__Socials--Tittle">
-                            Kết nối với Facebook
-                        </span>
-                    </a>
-
-                    <a href="" class="Btn Btn__With--Icon Auth-Form__Socials--Google">
-                        <i class="fa-brands fa-google Btn__Size--s Auth-Form__Socials--Icon"></i>
-                        <span class="Auth-Form__Socials--Tittle">
-                            Kết nối với Google
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </body>
 </html>
