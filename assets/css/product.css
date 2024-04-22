@@ -50,14 +50,16 @@
 }
 
 .Product-Rating__Filters--Categorical {
-    border: 1px solid rgba(0, 0, 0, 0.09);
-    background-color: #fff;
-    width: 70px;
-    height: 23px;
+    background: none;
+    height: 35px;
     font-size: 1.5rem;
-    margin: 1px 2px;
-    padding: 3px;
-    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    margin-right: 3px;
+    padding: 2px 20px;
+}
+
+.Product-Rating__Filters--Categorical:active {
+    border: 1px solid rgb(238, 77, 45);
 }
 
 .Product-Rating__List {
@@ -68,6 +70,9 @@
 
 .Product-Rating__Main {
     display: grid;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 0.8px solid rgba(0, 0, 0, 0.09);
     grid-template-columns: 50px 1fr;
     grid-template-rows: 20px 20px 20px auto auto;
     grid-template-areas: 
