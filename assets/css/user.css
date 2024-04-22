@@ -15,7 +15,6 @@
 }
 
 .User-Infomation {
-    border: 2px solid orange;
     grid-area: User;
     padding-left: 50px;
     padding-right: 50px;
