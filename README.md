@@ -17,7 +17,7 @@ ECommerceShop là một dự án website bán hàng trực tuyến, được thi
 - Bùi Trọng Anh
   - MSSV: 22022572
   - Email: 22022572@vnu.edu.vn
-  - GitHub: 
+  - GitHub: [tronganh0104](https://github.com/tronganh0104)
 
 ## Bắt Đầu
 
@@ -65,7 +65,7 @@ Liệt kê và mô tả các phiên bản phát hành của ECommerceShop.
 - Bùi Trọng Anh
   - MSSV: 22022572
   - Email: 22022572@vnu.edu.vn
-  - GitHub: 
+  - GitHub: [tronganh0104](https://github.com/tronganh0104)
 
 ## Giấy Phép
 
