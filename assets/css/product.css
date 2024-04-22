@@ -1,0 +1,126 @@
+.Product-Rating {
+    margin: 200px 30% 50px 10% ;
+    display: grid;
+    
+    grid-template-columns: 150px 3fr;
+    grid-template-rows: 2rem auto 2fr;
+    grid-template-areas: 
+    "h h"
+    "score filters"
+    "list list"
+}
+
+
+.Product-Rating__Header {
+    grid-area: h;
+    font-size: 2rem;
+}   
+
+.Product-Rating__Score {
+    display: grid;
+    grid-template-rows: 30px 30px;
+    padding: 10px 10px 10px 15px;
+    background-color: rgb(255, 251, 248);
+}
+
+.Product-Rating__Score--Score {
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(238, 77, 45);
+    margin-bottom: 5px;
+    padding-top: 15px;
+}
+
+.Product-Rating__Score--Star {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.Product-Rating__Score--Star img{
+    height: 15px;
+    width: 15px;
+}
+
+.Product-Rating__Filters {
+    display: flex;
+    padding: 20px 10px 10px 10px;
+    background-color: rgb(255, 251, 248);
+    flex-wrap: wrap;
+}
+
+.Product-Rating__Filters--Categorical {
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    background-color: #fff;
+    width: 70px;
+    height: 23px;
+    font-size: 1.5rem;
+    margin: 1px 2px;
+    padding: 3px;
+    text-align: center;
+}
+
+.Product-Rating__List {
+    grid-area: list;
+    display: flex;
+    flex-direction: column;
+}
+
+.Product-Rating__Main {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 20px 20px 20px auto auto;
+    grid-template-areas: 
+    "ava name"
+    "ava score"
+    "ava time"
+    "ava comment"
+    "ava image"
+}
+
+.Product-Rating__Main--Avatar {
+    grid-area: ava;
+    padding-left: 3px;
+}
+
+.Product-Rating__Main--Avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.Product-Rating__Main--Name {
+    grid-area: name;
+    font-size: 12px;
+}
+
+.Product-Rating__Main--Score {
+    grid-area: score;
+}
+
+.Product-Rating__Main--Score img {
+    height: 13px;
+    width: 13px;
+}
+
+.Product-Rating__Main--Time {
+    grid-area: time;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 12px;
+}
+
+.Product-Rating__Main--Comment {
+    font-size: 12px;
+    grid-area: comment;
+    margin-bottom: 5px;
+}
+
+.Product-Rating__Main--Image {
+    grid-area: image;
+    padding-left: 0.7px;
+}
+
+.Product-Rating__Main--Image img {
+    max-width: 72px;
+    max-inline-size: 72px;
+}
