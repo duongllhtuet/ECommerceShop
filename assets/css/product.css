@@ -8,7 +8,7 @@
     "h h"
     "score filters"
     "list list"
-    
+    "limit limit"
 }
 
 
@@ -105,8 +105,8 @@
 }
 
 .Product-Rating__Main--Score img {
-    height: 13px;
-    width: 13px;
+    width:15px;
+    height: 15px;
 }
 
 .Product-Rating__Main--Time {
@@ -129,4 +129,38 @@
 .Product-Rating__Main--Image img {
     max-width: 72px;
     max-inline-size: 72px;
+}
+
+.Product-Rating__Limit {
+    padding-top: 20px;
+    grid-area: limit;
+    display: flex;
+    justify-content: center;
+}
+
+.Product-Rating__Limit--Change {
+    margin-left: 15px;
+    margin-right: 15px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.Product-Rating__Limit--Change:active {
+    margin-left: 15px;
+    margin-right: 15px;
+    border: none;
+    background-color:  rgb(238, 77, 45);
+    color: #fff;
+    font-size: 20px;
+}
+
+.Product-Rating__Limit--Left,.Product-Rating__Limit--Right {
+    margin-left: 15px;
+    margin-right: 15px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.4);
 }
