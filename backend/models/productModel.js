@@ -20,6 +20,10 @@ const productSchema = new mongoose.Schema({
   category: {
     type:String, 
     required:true},
+  selling: {
+    type: Number,
+    default: 0,
+  },
   ratings: [{ 
     userId: { type: String, required: true },
     comment: { type: String, required: true },
