@@ -1,42 +1,42 @@
 import React from 'react'
 
-const Login = () => {
+const Login = ({ setShowLogin }) => {
   return (
-    <div class="Modal">
-        <div class="Modal_Overlay">
+    <div className="Modal">
+        <div className="Modal_Overlay">
 
         </div>
-        <div class="Modal__Body">
+        <div className="Modal__Body">
             {/* <!-- Login Form--> */}
-            <div class="Auth-Form">
-                <div class="Auth-Form__Container">
-                    <div class="Auth-Form__Header">
-                        <h3 class="Auth-Form__Heading">Đăng nhập</h3>
+            <div className="Auth-Form">
+                <div className="Auth-Form__Container">
+                    <div className="Auth-Form__Header">
+                        <h3 className="Auth-Form__Heading">Đăng nhập</h3>
 
-                        <a href="http://localhost:5000/user/signup" class="Auth-Form__Switch--Btn">Đăng ký</a>
+                        <a href="http://localhost:5000/user/signup" className="Auth-Form__Switch--Btn">Đăng ký</a>
                     </div>
 
                     <form action="/src/resources/views/user/login" method="POST">
-                        <div class="Autho-Form__Form">
-                            <div class="Auth-Form__Group">
-                                <input type="text" id="email" name="email" class="Auth-Form__Input" placeholder="Email của bạn" required autocomplete="off"/>
+                        <div className="Autho-Form__Form">
+                            <div className="Auth-Form__Group">
+                                <input type="text" id="email" name="email" className="Auth-Form__Input" placeholder="Email của bạn" required autocomplete="off"/>
                             </div>
-                            <div class="Auth-Form__Group">
-                                <input type="text" id="password" name="password" class="Auth-Form__Input" placeholder="Mật khẩu của bạn" required/>
+                            <div className="Auth-Form__Group">
+                                <input type="text" id="password" name="password" className="Auth-Form__Input" placeholder="Mật khẩu của bạn" required/>
                             </div>
                             
                         </div>
 
-                        <div class="Auth-Form__Aside">
-                            <div class="Auth-Form__Help">
-                                <a href="" class="Auth-Form__Help--Link Auth-Form__Help--Forgot">Quên mật khẩu</a>
-                                <span class="Auth-Form__Help--Separate"></span>
-                                <a href="" class="Auth-Form__Help--Link">Cần trợ giúp?</a>
+                        <div className="Auth-Form__Aside">
+                            <div className="Auth-Form__Help">
+                                <a href="" className="Auth-Form__Help--Link Auth-Form__Help--Forgot">Quên mật khẩu</a>
+                                <span className="Auth-Form__Help--Separate"></span>
+                                <a href="" className="Auth-Form__Help--Link">Cần trợ giúp?</a>
                             </div>
                         </div>
 
-                        <div class="Auth-Form__Controls">
-                            <button type="submit" class="Btn Btn--Primary">ĐĂNG NHẬP</button>
+                        <div className="Auth-Form__Controls">
+                            <button type="submit" className="Btn Btn--Primary">ĐĂNG NHẬP</button>
                         </div>
                     </form>
                 </div>
