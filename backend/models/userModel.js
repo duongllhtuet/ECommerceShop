@@ -21,11 +21,9 @@ const userSchema = new mongoose.Schema({
     },
     picture: {
         type: String,
-    },
-    purchase: {
-        type: Array,
-        ref: 'Purchase'
     }
 })
 
-module.exports = mongoose.model('User', userSchema)
+const userModel = mongoose.models.user || mongoose.model("user", userSchema);
+
+export default userModel;
