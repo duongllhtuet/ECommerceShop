@@ -1,4 +1,4 @@
-const Grocery = require('../Models/grocery'); 
+const Grocery = require('../models/productModel'); 
 
 class GroceryController {
     async getAllGroceries(req, res) {

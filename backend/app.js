@@ -1,45 +1,34 @@
-const express = require('express');
-const path = require('path');
-const morgan = require('morgan');
-const handlebars = require('express-handlebars').create({
-    extname: '.hbs',
-});
+import express from 'express'
+import cors from 'cors'
+import { connectDB } from './config/db.js'
+import foodRouter from './routes/foodRoute.js'
+import userRouter from './routes/userRoute.js'
+import 'dotenv/config'
+import cartRouter from './routes/cartRoute.js'
+import orderRouter from './routes/orderRoute.js'
 
-const route = require('./routes/appRoutes.js');
-const db = require('./config/data.js');
-const { homedir } = require('os');
+// app config
+const app = express()
+const port = 4000
 
-// Connect to db
-db.connect();
+// middleware
+app.use(express.json())
+app.use(cors())
 
-const app = express();
-const port = 3000;
+// db connection
+connectDB();
 
-// Apply middleware cho post
-app.use(
-    express.urlencoded({
-        extended: true,
-    }),
-);
-// XMLHttp request, fetch, axios, ajax
-app.use(express.json());
+// api endpoints
+app.use("/api/food", foodRouter)
+app.use("/images", express.static('uploads'))
+app.use("/api/user", userRouter)
+app.use("/api/cart", cartRouter)
+app.use("/api/order", orderRouter)
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.get("/", (req, res) => {
+    res.send("API working")
+})
 
-console.log(path.join(__dirname, 'public'));
-
-// HTTP loger
-app.use(morgan('combined'));
-
-// Template engine
-app.engine('hbs', handlebars.engine);
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources/views'));
-
-// route init
-route(app);
-
-app.listen(port, () =>
-    console.log(`Example app listening at http://localhost:${port}`),
-);
+app.listen(port, () => {
+    console.log(`Server started on http://localhost:${port}`)
+})
