@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from "mongoose"
 
 const productSchema = new mongoose.Schema({
   name: {
@@ -17,9 +17,14 @@ const productSchema = new mongoose.Schema({
     type: String,
     require: true
   },
+  sex: {
+    type:String, 
+    required:true
+  },
   category: {
     type:String, 
-    required:true},
+    required:true
+  },
   selling: {
     type: Number,
     default: 0,
