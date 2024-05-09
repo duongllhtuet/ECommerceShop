@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from "mongoose"
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
     },
     name: {
         type: String,
+        required: true
     },
     phoneNumber: {
         type: String,
@@ -21,8 +22,12 @@ const userSchema = new mongoose.Schema({
     },
     picture: {
         type: String,
+    },
+    cartData: {
+        type:Object,
+        default:{}
     }
-})
+}, {minimize:false})
 
 const userModel = mongoose.models.user || mongoose.model("user", userSchema);
 
