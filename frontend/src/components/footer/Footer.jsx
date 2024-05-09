@@ -1,5 +1,6 @@
 import React from 'react'
 import './Footer.css'
+import { assets } from '../../assets/assets'
 
 const Footer = () => {
   return (
@@ -120,7 +121,7 @@ const Footer = () => {
 
                 <div className="Footer__Download">
                 <img
-                    src="img/QR_Code.png"
+                    src={assets.QR_Code}
                     alt="Download Qr"
                     className="Footer__Download--Qr"
                 />
@@ -128,19 +129,19 @@ const Footer = () => {
                 <div className="Footer__Download--Apps">
                     <a href="" className="Footer__Download--App--Link">
                     <img
-                        src="img/Google%20Play.png"
+                        src={assets.GooglePlay}
                         alt="Google Play"
                         className="Footer__Download--App--Img"
                     />
 
                     <img
-                        src="img/App%20Store.png"
+                        src={assets.AppStore}
                         alt="Apple Store"
                         className="Footer__Download--App--Img"
                     />
 
                     <img
-                        src="img/AppGallery.png"
+                        src={assets.AppGallery}
                         alt="App Gallery"
                         className="Footer__Download--App--Img"
                     />

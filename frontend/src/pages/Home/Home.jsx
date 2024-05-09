@@ -1,7 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './Home.css'
+// import { assets } from '../../assets/assets'
+import { StoreContext } from '../../context/StoreContext.jsx';
+import ProductItem from '../../components/productItem/ProductItem.jsx';
+import axios from 'axios'
 
 const Home = () => {
+
+    const [category,setCategory] = useState("All");
+
+    const [data, setData] = useState([]);
+
+    const { url } = useContext(StoreContext);
+
+    const fetchProduct = async () => {
+        const response = await axios.get(url + `/api/product/list`);
+        if (response.data.success) {
+            setData(response.data.data);
+        } else {
+            console.log("Error")
+        }
+    }
+
+    useEffect (() => {
+        fetchProduct()
+    })
+
   return (
     <div className="App__Container">
         <div className="grid wide">
@@ -13,16 +37,16 @@ const Home = () => {
                 </h3>
 
                 <ul className="Category--List">
-                    <li className="Category--Item Category--Item--Active">
-                    <a href="#" className="Category--Item__Link">Sản phẩm</a>
+                    <li className="Category--Item">
+                        <div onClick={()=>setCategory(prev=>"All")} className="Category--Item__Link">Tất cả</div>
                     </li>
 
                     <li className="Category--Item">
-                    <a href="#" className="Category--Item__Link">Trang điểm môi</a>
+                        <div onClick={()=>setCategory(prev=>"Men")} className="Category--Item__Link">Thời trang nam</div>
                     </li>
 
                     <li className="Category--Item">
-                    <a href="#" className="Category--Item__Link">Trang điểm mắt</a>
+                        <div onClick={()=>setCategory(prev=>"Women")} className="Category--Item__Link">Thời trang nữ</div>
                     </li>
                 </ul>
                 </nav>
@@ -34,23 +58,14 @@ const Home = () => {
                 <div className="row sm--gutter">
                     <div className="col l-2-4 m-4 c-6">
                     {/* <!-- Product Item --> */}
-                    <a className="Home--Product--Items" href="#">
-                        <div
-                            className="Home--Product--Item__Img"
-                            style={{ backgroundImage: `url(https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltdk0z6wuoqs01_tn)` }}
-                        ></div>
-
-                        <h4 className="Home--Product--Item__Name">Loa Máy Tính Để Bàn
-                        Leerfei E-350T Công Suất Lớn Dùng Cho Máy Vi Tính PC, Laptop,
-                        Tivi- E-350Ts</h4>
-
-                        <div className="Home--Product--Item__Price">
-                        <span
-                            className="Home--Product--Item__Price--Current"
-                        >1.200.000đ</span>
-                        <span className="Home--Product--Item__Sold">88 đã bán</span>
-                        </div>
-                    </a>
+                    {data.map((item, index) => {
+                        if(category==="All" || category===item.category){
+                            return (
+                                <ProductItem key={index} id={item._id} name={item.name} description={item.description} price={item.price} image={item.picture} sell={item.sell} />
+                            )
+                        }
+                    })}
+                    
                     </div>
                 </div>
                 </div>

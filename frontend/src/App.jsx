@@ -6,6 +6,7 @@ import Login from './components/login/Login'
 import Header from './components/header/Header'
 import User from './pages/User/User'
 import Order from './pages/Order/Order'
+import Product from './pages/Product/Product'
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/user' element={<User />} />
           <Route path='/order' element={<Order />} />
+          <Route path='/product/:id' element={<Product />} />
         </Routes>
       </div>
       <Footer />
