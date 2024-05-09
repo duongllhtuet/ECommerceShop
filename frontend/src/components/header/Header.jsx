@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets'
 import './Header.css';
 import { StoreContext } from '../../context/StoreContext.jsx';
 
-const Header = ({ setShowLogin }) => {
+const Header = ({ setShowLogin, setShowSignup }) => {
 
     const {token, setToken} = useContext(StoreContext); // lay gia tri tu context
 
@@ -76,8 +76,7 @@ const Header = ({ setShowLogin }) => {
             {!token? 
             (
                 <>
-                    <li className="header__navbar--item header__navbar--item--strong header__navbar--item--separate">Đăng ký</li>
-                    <li className="header__navbar--item header__navbar--item--strong">Đăng nhập</li>
+                    <li className="header__navbar--item header__navbar--item--strong" onClick={() => setShowLogin(true)} >Đăng nhập</li>
                 </>
             ) : (<li className="header__navbar--item Header__Navbar--User">
               <img
@@ -102,7 +101,7 @@ const Header = ({ setShowLogin }) => {
                   </a>
                 </li>
                 <li className="header__navbar--user-option">
-                  <a href="" className="header__navbar--user-option--link">
+                  <a onClick={logout} className="header__navbar--user-option--link">
                     <i className="header__navbar--user-option--icon fa-solid fa-sign-out-alt"></i>
                     Đăng xuất
                   </a>
