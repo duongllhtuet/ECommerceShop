@@ -7,6 +7,10 @@ import Header from './components/header/Header'
 import User from './pages/User/User'
 import Order from './pages/Order/Order'
 import Product from './pages/Product/Product'
+import Cart from './pages/Cart/Cart'
+import Verify from './pages/Verify/Verify'
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
+
 
 const App = () => {
 
@@ -19,8 +23,11 @@ const App = () => {
         <Header setShowLogin={setShowLogin} />
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/order' element={<PlaceOrder />} />
           <Route path='/user' element={<User />} />
-          <Route path='/order' element={<Order />} />
+          <Route path='/verify' element={<Verify />} />
+          <Route path='/myorders' element={<Order />} />
           <Route path='/product/:id' element={<Product />} />
         </Routes>
       </div>

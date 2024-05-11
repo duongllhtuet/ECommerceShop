@@ -1,6 +1,9 @@
 import React from 'react'
 
-const Purchase = () => {
+const Order = () => {
+
+    
+
   return (
     <div class="purchase">
         <div class="Grid">
@@ -37,4 +40,4 @@ const Purchase = () => {
   )
 }
 
-export default Purchase
+export default Order

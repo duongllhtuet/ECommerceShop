@@ -49,8 +49,8 @@ const removeProduct = async(req, res) => {
 
 const getProductById = async (req, res) => {
     try {
-        const food = await productModel.findById(req.params.id); // Tìm food theo id từ database
-        res.json({success:true, data:food})
+        const product = await productModel.findById(req.params.id);
+        res.json({success:true, data:product})
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Error'});

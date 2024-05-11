@@ -5,42 +5,72 @@ export const StoreContext = createContext(null)
 
 const StoreContextProvider = (props) => {
 
-    const [cartItems, setCartItems] = useState({});
+    const [cartItems, setCartItems] = useState([
+        { productId: "", quantity: "", size: "" }
+    ]);
     const url = "http://localhost:4000";
     const [token, setToken] = useState("");
     const [product_list, setProductList] = useState([])
 
-    const addToCart = async (itemId) => {
-        if (!cartItems[itemId]) {
-            setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
+    const addToCart = async (itemId, size, quantity) => {
+        let existingItemIndex = -1
+        if (cartItems) {
+            existingItemIndex = cartItems.findIndex(cart => cart.productId === itemId);
         }
-        else {
-            setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
-        }
-        if (token) {
-            await axios.post(url+"/api/cart/add", {itemId}, {headers: {token}})
-        }
-    }
 
-    const removeFromCart = async (itemId) => {
-        setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
-        if (token) {
-            await axios.post(url + "/api/cart/remove", {itemId}, {headers: {token}})
-        }
-    }
-
-    const getTotalCartAmount = () => {
-        let totalAmount = 0;
-        for (const item in cartItems) {
-            if (cartItems[item] > 0) {
-                let itemInfo = food_list.find((product) => product._id === item);
-                if (itemInfo) { 
-                    totalAmount += itemInfo.price * cartItems[item];
+        if (existingItemIndex !== -1) {
+            // Nếu mặt hàng đã tồn tại trong giỏ hàng, cập nhật số lượng
+            const updatedCartItems = [...cartItems];
+            updatedCartItems[existingItemIndex].quantity += quantity;
+            setCartItems(updatedCartItems);
+        } else {
+            // Nếu mặt hàng chưa tồn tại trong giỏ hàng, thêm mới vào giỏ hàng
+            setCartItems(prevCartItems => {
+                if (Array.isArray(prevCartItems)) {
+                  return [...prevCartItems, { productId: itemId, size: size, quantity: quantity }];
+                } else {
+                  return [{ productId: itemId, size: size, quantity: quantity }]; // Khởi tạo mảng mới nếu prevCartItems là rỗng
                 }
+            });
+        }
+
+        console.log(cartItems)
+        
+        if (token) {
+            await axios.post(url + "/api/cart/add", { itemId, size, quantity }, { headers: { token } });
+        }
+    };
+    
+    const removeFromCart = async (itemId, size) => {
+        const existingItemIndex = cartItems.findIndex(cart => cart.productId === itemId && cart.size === size);
+
+        if (existingItemIndex !== -1 && cartItems[existingItemIndex].quantity > 0) {
+            // Nếu mặt hàng tồn tại và số lượng lớn hơn 0, giảm số lượng đi 1
+            const updatedCartItems = [...cartItems];
+            updatedCartItems[existingItemIndex].quantity -= 1;
+            setCartItems(updatedCartItems);
+
+            if (token) {
+                await axios.post(url + "/api/cart/remove", { itemId, size }, { headers: { token } });
             }
         }
+    };
+    
+    
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        if (cartItems && cartItems.length > 0) {
+            cartItems.map((cart, index) => { 
+                if (cart.quantity > 0) {
+                    const itemInfo = product_list.find((product) => product._id === cart.productId);
+                    if (itemInfo) {
+                        totalAmount += itemInfo.price * cart.quantity;
+                    }
+                }
+            })
+        }
         return totalAmount;
-    }
+    };
     
 
     const fetchProductList = async () => {

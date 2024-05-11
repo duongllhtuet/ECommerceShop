@@ -5,6 +5,7 @@ import AppStore from './img/AppStore.png'
 import star from './img/star.png'
 import starnofill from './img/starnofill.png'
 import EmptyCart from './img/Empty_Cart.png'
+import AddItem from './img/addItem.svg'
 
 export const assets = {
     QR_Code,
@@ -13,5 +14,6 @@ export const assets = {
     AppGallery,
     star,
     starnofill,
-    EmptyCart
+    EmptyCart,
+    AddItem,
 }

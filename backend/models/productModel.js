@@ -32,8 +32,9 @@ const productSchema = new mongoose.Schema({
   ratings: [{ 
     userId: { type: String, required: true },
     comment: { type: String, required: true },
-    rating: { type: Number, required: true }
-}]
+    rating: { type: Number, required: true },
+    date: { type: Date, default: Date.now(), }
+  }]
 })
 
 const productModel = mongoose.models.product || mongoose.model("product", productSchema);

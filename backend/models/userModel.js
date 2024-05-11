@@ -23,10 +23,11 @@ const userSchema = new mongoose.Schema({
     picture: {
         type: String,
     },
-    cartData: {
-        type:Object,
-        default:{}
-    }
+    cartData: [{
+        productId: { type: String, required: true },
+        quantity: {type: Number, required: true},
+        size: { type: String, required: true }
+    }]
 }, {minimize:false})
 
 const userModel = mongoose.models.user || mongoose.model("user", userSchema);
