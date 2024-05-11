@@ -21,7 +21,7 @@ const orderSchema = new mongoose.Schema({
         type: String, 
         default: "Product Processing",
     },
-    data: {
+    date: {
         type: Date,
         default: Date.now(),
     },

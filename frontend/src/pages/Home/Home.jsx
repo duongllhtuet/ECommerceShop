@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react'
 import './Home.css'
-// import { assets } from '../../assets/assets'
+import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext.jsx';
 import ProductItem from '../../components/productItem/ProductItem.jsx';
 import axios from 'axios'
 
 const Home = () => {
 
-    const [category,setCategory] = useState("All");
+    const [category, setCategory] = useState("All");
+    const [sex, setSex] = useState("All");
 
     const [data, setData] = useState([]);
 
@@ -30,47 +31,45 @@ const Home = () => {
     <div className="App__Container">
         <div className="grid wide">
             <div className="row sm--gutter App_Content">
-            <div className="col l-2 m-0 c-0">
-                <nav className="Category">
-                <h3 className="Category__Heading">
-                    Danh mục
-                </h3>
+                <div className="col l-2 m-0 c-0">
+                    <nav className="Category">
+                    <h3 className="Category__Heading">
+                        Danh mục
+                    </h3>
 
-                <ul className="Category--List">
-                    <li className="Category--Item">
-                        <div onClick={()=>setCategory(prev=>"All")} className="Category--Item__Link">Tất cả</div>
-                    </li>
+                    <ul className="Category--List">
+                        <li className="Category--Item">
+                            <div onClick={()=>setSex(prev=>"All")} className="Category--Item__Link">Tất cả</div>
+                        </li>
 
-                    <li className="Category--Item">
-                        <div onClick={()=>setCategory(prev=>"Men")} className="Category--Item__Link">Thời trang nam</div>
-                    </li>
+                        <li className="Category--Item">
+                            <div onClick={()=>setSex(prev=>"Men")} className="Category--Item__Link">Thời trang nam</div>
+                        </li>
 
-                    <li className="Category--Item">
-                        <div onClick={()=>setCategory(prev=>"Women")} className="Category--Item__Link">Thời trang nữ</div>
-                    </li>
-                </ul>
-                </nav>
-            </div>
+                        <li className="Category--Item">
+                            <div onClick={()=>setSex(prev=>"Women")} className="Category--Item__Link">Thời trang nữ</div>
+                        </li>
+                    </ul>
+                    </nav>
+                </div>
 
-            <div className="col l-10 m-12 c-12">
-
-                <div className="Home--Products">
-                <div className="row sm--gutter">
-                    <div className="col l-2-4 m-4 c-6">
-                    {/* <!-- Product Item --> */}
-                    {data.map((item, index) => {
-                        if(category==="All" || category===item.category){
-                            return (
-                                <ProductItem key={index} id={item._id} name={item.name} description={item.description} price={item.price} image={item.picture} sell={item.sell} />
-                            )
-                        }
-                    })}
-                    
+                <div className="col l-10 m-12 c-12">
+                    <div className="Home--Products">
+                        <div className="row sm--gutter">
+                            <div className="col l-2-4 m-4 c-6">
+                                {/* <!-- Product Item --> */}
+                                {data.map((item, index) => {
+                                    if(sex==="All" || sex===item.sex){
+                                        return (
+                                            <ProductItem key={index} id={item._id} name={item.name} description={item.description} price={item.price} image={item.picture} selling={item.selling} />
+                                        )
+                                    }
+                                })}
+                            </div>
+                        </div>
                     </div>
-                </div>
-                </div>
 
-                <ul className="Pagnination Home--Product__Pagination">
+                {/* <ul className="Pagnination Home--Product__Pagination">
                 <li className="Pagnination--Item">
                     <a href="" className="Pagnination--Item__Link">
                     <i className="Pagnination--Item__Icon fas fa-angle-left"></i>
@@ -86,8 +85,8 @@ const Home = () => {
                     <i className="Pagnination--Item__Icon fas fa-angle-right"></i>
                     </a>
                 </li>
-                </ul>
-            </div>
+                </ul> */}
+                </div>
             </div>
         </div>
     </div>

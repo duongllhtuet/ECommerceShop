@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets'
 import './Header.css';
 import { StoreContext } from '../../context/StoreContext.jsx';
 
-const Header = ({ setShowLogin, setShowSignup }) => {
+const Header = ({ setShowLogin }) => {
 
     const {token, setToken} = useContext(StoreContext); // lay gia tri tu context
 
@@ -85,19 +85,25 @@ const Header = ({ setShowLogin, setShowSignup }) => {
                 className="header__navbar--user-avatar"
               />
 
-              <span className="header__navbar--user-name">Đào Hải Long</span>
+              {/* <span className="header__navbar--user-name">Đào Hải Long</span> */}
 
               <ul className="header__navbar--user-options">
                 <li className="header__navbar--user-option">
-                  <a href="" className="header__navbar--user-option--link">
+                  <a onClick={() => navigate('/user')} className="header__navbar--user-option--link">
                     <i className="header__navbar--user-option--icon fa-solid fa-user-circle"></i>
                     Tài khoản của tôi
                   </a>
                 </li>
                 <li className="header__navbar--user-option">
-                  <a href="" className="header__navbar--user-option--link">
+                  <a onClick={() => navigate('/order')} className="header__navbar--user-option--link">
                     <i className="header__navbar--user-option--icon fa-solid fa-money-bill-wave"></i>
                     Sản phẩm đã mua
+                  </a>
+                </li>
+                <li className="header__navbar--user-option">
+                  <a onClick={() => navigate('/cart')} className="header__navbar--user-option--link">
+                    <i className="header__navbar--user-option--icon fa-solid fa-money-bill-wave"></i>
+                    giỏ hàng
                   </a>
                 </li>
                 <li className="header__navbar--user-option">
