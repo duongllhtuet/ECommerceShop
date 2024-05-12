@@ -79,9 +79,31 @@ const getUser = async (req, res) => {
         const user = await userModel.findById(req.body.userId);
         res.json({success:true, data:user})
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Error'});
+        console.log(error);
+        res.json({success:false, message: 'Error'})
     }
 };
 
-export {loginUser, registerUser, getUser}
+const modifyUser = async (req, res) => {
+    let image_filename = "";
+    if (req.file) {
+        image_filename = req.file.filename;
+    }
+
+    try {
+        const user = await userModel.findById(req.body.userId);
+        user.name = req.body.name
+        user.email = req.body.email
+        user.phoneNumber = req.body.phone
+        if (req.file) {
+            user.picture = image_filename;
+        }
+        await user.save();
+        res.json({success:true, message:'Thông tin đã thay đổi'})
+    } catch (error) {
+        console.log(error);
+        res.json({success:false, message: 'Error'})
+    }
+}
+
+export {loginUser, registerUser, getUser, modifyUser}

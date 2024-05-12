@@ -18,29 +18,29 @@ const addProduct = async (req, res) => {
         res.json({success:true, message:'Product Added'})
     } catch (error) {
         console.log(error)
-        res.json({success:false,message:'Error'})
+        res.json({success:false, message:'Error'})
     }
 }
 
-// all food list
+// all product list
 const listProduct = async (req, res) => {
     try {
-        const foods = await productModel.find({});
-        res.json({success:true, data:foods})
+        const products = await productModel.find({});
+        res.json({success:true, data:products})
     } catch(error) {
         console.log(error)
         res.json({success:false, message:'Error'})
     } 
 }
 
-//remove food item
+//remove product item
 const removeProduct = async(req, res) => {
     try {
-        const food = await productModel.findById(req.body.id);
-        fs.unlink(`uploads/${food.image}`,()=>{})
+        const product = await productModel.findById(req.body.id);
+        fs.unlink(`uploads/${product.picture}`,()=>{})
 
         await productModel.findByIdAndDelete(req.body.id);
-        res.json({success:true, message:'Food Removed'})
+        res.json({success:true, message:'Product Removed'})
     } catch (error) {
         console.log(error);
         res.json({success:false,message:'Error'})
@@ -59,15 +59,15 @@ const getProductById = async (req, res) => {
 
 const addComment = async (req, res) => {
     try {
-        const food = await productModel.findById(req.params.id);
+        const product = await productModel.findById(req.params.id);
 
-        food.ratings.push({
+        product.ratings.push({
             userId: req.body.userId,
             comment: req.body.comment,
             rating: req.body.rating,
         });
         
-        await food.save();
+        await product.save();
         res.json({success:true, message:"Added comment"});
     } catch (error) {
         console.log(error);

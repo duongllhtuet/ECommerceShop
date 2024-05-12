@@ -18,31 +18,31 @@ const placeOrder = async (req, res) => {
             address: req.body.address,
         })
         await newOrder.save();
-        await userModel.findByIdAndUpdate(req.body.userId, {cartData:{}});
         
         const line_items = req.body.items.map((item) => ({
             price_data: {
-                currency: "inr",
+                currency: "usd",
                 product_data: {
                     name: item.name
                 },
-                unit_amount: item.price*100*80
+                unit_amount: Math.round(item.price*0.000039)
             },
             quantity: item.Quantity
         }))
 
         line_items.push({
             price_data: {
-                currency: "inr",
+                currency: "usd",
                 product_data: {
                     name: "Delivery Charges"
                 },
-                unit_amount: 2*100*80
+                unit_amount: Math.round(30000*0.000039)
             },
             quantity: 1 
         })
 
         const session = await stripe.checkout.sessions.create ({
+            payment_method_types: ['card'],
             line_items: line_items,
             mode: 'payment',
             success_url: `${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
@@ -62,6 +62,7 @@ const verifyOrder = async(req, res) => {
     try {
         if (success == "true") {
             await orderModel.findByIdAndUpdate(orderId, {payment: true});
+            await userModel.findByIdAndUpdate(req.body.userId, {cartData:[]});
             res.json({success: true, message: "Paid"})
         } else {
             await orderModel.findByIdAndUpdate(orderId)
