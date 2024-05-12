@@ -45,9 +45,9 @@ const Orders = ({url}) => {
                                 {
                                     order.items.map((item, index) => {
                                         if (index === order.items.length-1) {
-                                            return item.name + " x " + item.Quantity
+                                            return item.name + "(" + item.Size + ") x " + item.Quantity
                                         } else {
-                                            return item.name + " x " + item.Quantity + ", "
+                                            return item.name + "(" + item.Size + ") x " + item.Quantity + ", "
                                         }
                                     })
                                 }

@@ -2,6 +2,7 @@ import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import validator from "validator"
+import fs from 'fs'
 
 const loginUser = async (req, res) => {
   const {email,password} = req.body;
@@ -92,6 +93,9 @@ const modifyUser = async (req, res) => {
 
     try {
         const user = await userModel.findById(req.body.userId);
+        if (user.picture) {
+            fs.unlink(`uploads/${user.picture}`,()=>{})
+        }
         user.name = req.body.name
         user.email = req.body.email
         user.phoneNumber = req.body.phone

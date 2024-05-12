@@ -64,6 +64,15 @@ const Profile = () => {
         }
     }
 
+    const handleImageChange = (e) => {
+        const selectedImage = e.target.files[0];
+        if (selectedImage) {
+          setImage(URL.createObjectURL(selectedImage));
+        } else {
+          setImage(null); // Nếu người dùng không chọn ảnh, đặt image về null
+        }
+    };
+
 
   return (
     <div className="profile">
@@ -112,7 +121,7 @@ const Profile = () => {
             
                 <div className="User-Infomation__Update-Avatar">
                     <img src={image ? image : assets.defaultAvatar} className="User-Infomation__Update-Avatar--Avatar" alt="" />
-                    <input onChange={(e) => setImage(e.target.files[0])} type='file' id='image' hidden />
+                    <input onChange={handleImageChange} type='file' id='image' hidden />
                     <label htmlFor="image" className="User-Infomation__Upload-Button">Chọn ảnh</label>
                 </div>
 
