@@ -15,7 +15,7 @@ const StoreContextProvider = (props) => {
     const addToCart = async (itemId, size, quantity) => {
         let existingItemIndex = -1
         if (cartItems) {
-            existingItemIndex = cartItems.findIndex(cart => cart.productId === itemId);
+            existingItemIndex = cartItems.findIndex(cart => cart.productId === itemId && cart.size === size);
         }
 
         if (existingItemIndex !== -1) {

@@ -6,6 +6,7 @@ import star from './img/star.png'
 import starnofill from './img/starnofill.png'
 import EmptyCart from './img/Empty_Cart.png'
 import AddItem from './img/addItem.svg'
+import defaultAvatar from './img/defaultAvatar.jpg'
 
 export const assets = {
     QR_Code,
@@ -16,4 +17,5 @@ export const assets = {
     starnofill,
     EmptyCart,
     AddItem,
+    defaultAvatar,
 }

@@ -6,26 +6,32 @@ import axios from 'axios';
 
 const PlaceOrder = () => {
 
-  const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext)
+  const { getTotalCartAmount, token, product_list, cartItems, url } = useContext(StoreContext)
 
   const [user, setUser] = useState({})
 
+  const [data,setData] = useState({
+    name: "",
+    street: "",
+    city: "",
+    phone: "",
+  })
+
   const getUser = async () => {
-    const response = await axios.post(url + "/api/user/get", {headers: {token}});
+    const response = await axios.post(url + "/api/user/get", {}, {headers: {token}});
     if (response.data.success) {
-        setUser(response.data.user);
+        const userData = response.data.data;
+        setUser(userData);
+        setData({
+          name: userData.name,
+          street: "",
+          city: "",
+          phone: userData.phoneNumber,
+        });
     } else {
         console.log("Error")
     }
   }
-
-  const [data,setData] = useState({
-    name: user.name,
-    email: user.email,
-    street: "",
-    city: "",
-    phone: user.phoneNumber,
-  })
 
   const onChangeHandler = (event) => {
       const name = event.target.name;
@@ -36,19 +42,26 @@ const PlaceOrder = () => {
   const placeOrder = async (event) => {
       event.preventDefault();
       let orderItems = [];
-      food_list.map((item) => {
-          if (cartItems[item._id] > 0) {
-              let itemInfo = item;
-              itemInfo["Quantity"] = cartItems[item._id];
-              orderItems.push(itemInfo);
-          }
-      })
+
+      product_list.map((item) => {
+      if (cartItems && cartItems.length > 0) {
+          cartItems.map((cart, index) => { 
+              if (cart.quantity > 0) {
+                let itemInfo = item
+                itemInfo["Quantity"] = cart.quantity
+                itemInfo["Size"] = cart.size
+                orderItems.push(itemInfo);
+              }
+          })
+      }})
+
       let orderData = {
           address: data,
           items: orderItems,
-          amount: getTotalCartAmount() + 2,
+          amount: getTotalCartAmount() + 30000,
       }
       let response = await axios.post(url + "/api/order/place", orderData, {headers: {token}});
+
       if (response.data.success) {
           const {session_url} = response.data;
           window.location.replace(session_url);
@@ -76,7 +89,6 @@ const PlaceOrder = () => {
         <div className="multi-fields">
           <input required name='name' onChange={ onChangeHandler } value={ data.name } type="text" placeholder='Name' />
         </div>
-        <input required name='email' onChange={ onChangeHandler } value={ data.email } type="email" placeholder='Email address' />
         <input required name='street' onChange={ onChangeHandler } value={ data.street } type="text" placeholder='Street' />
         <div className="multi-fields">
           <input required name='city' onChange={ onChangeHandler } value={ data.city } type="text" placeholder='City' />
@@ -89,17 +101,17 @@ const PlaceOrder = () => {
           <div>
             <div className="cart-total-details">
               <p>Subtotal</p>
-              <p>${getTotalCartAmount()}</p>
+              <p>VND {getTotalCartAmount()}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
+              <p>VND {getTotalCartAmount() === 0 ? 0 : 30000}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
+              <b>VND {getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 30000}</b>
             </div>
           </div>
           <button type='submit'>PROCEED TO PAYMENT</button>

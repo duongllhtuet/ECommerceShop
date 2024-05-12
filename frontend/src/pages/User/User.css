@@ -1,84 +1,233 @@
-.purchase {
-    background-color: #F5F5F5;
-    padding-bottom: 20px;
+.Container-User {
+    margin: 100px 10% 20px 10% ;
+    height: 592px;
+    width: 1200px;
+    
+    display: grid;
+    grid-template-columns: 180px 1020px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "Side User"
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
+.Side-Bar {
+    grid-area: Side;
 }
 
-.sidebar {
-    width: 180px;
-    display: flex;
-    flex-direction: column;
+.User-Infomation {
+    grid-area: User;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-template-rows: 23px 20px auto;
+    grid-template-areas: 
+    "title title"
+    "view view"
+    "description avatar"
+}
+
+.User-Infomation__Title {
+    grid-area: title;
+    font-size: 18px;
+}
+
+.User-Infomation__Overview {
+    grid-area: view;
     font-size: 14px;
-    text-decoration: none;
-    margin-top: 25px;
+    border-bottom: 0.0625rem solid rgb(239, 239, 239);
+    color: rgb(85, 85, 85);
 }
 
-.sidebar-child {
-    height: 36px;
-    background-color: #ffffff;
-    text-decoration: none;
-    display: flex;
-    color: var(--black-color);
+.User-Infomation__Description {
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 166px 1fr;
+    grid-template-rows: repeat(7, 45px);
+    padding-top: 30px;
+    grid-gap: 10px;
+    grid-template-areas:
+    "username1 username2"
+    "name1 name2"
+    "email1 email2"
+    "phone1 phone2"
+    "gender1 gender2"
+    "date1 date2"
+    "save1 save2"
+}
+
+.User-Infomation__Description--UserName1 {
+    padding-top: 13px;
+    grid-area: username1;
+    text-align: right;
+    color: rgba(85, 85, 85, 0.8);
+}
+
+.User-Infomation__Description--UserName2 {
+    padding-top: 13px;
+    grid-area: username2;
+    padding-left: 20px;
+}
+
+.User-Infomation__Description--Name1 {
+    grid-area: name1;
+    text-align: right;
+    padding-top: 13px;
+    color: rgba(85, 85, 85, 0.8);
+}
+
+.User-Infomation__Description--Name2 {
     align-items: center;
+    border: 1px solid rgba(0, 0, 0, .14);
+    margin-left: 20px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    grid-area: name2;
 }
 
-.sidebar-child p {
-    margin-left: 5px;
-    margin-top: auto;
-    margin-bottom: auto;
+.User-Infomation__Description--Name2 input[type="text"] {
+    border: 0;
+    padding: 12px;
+    width: auto;
+    background: none;
+    filter: none;
+    outline: none;
 }
 
-.sidebar-child.current {
-    color: var(--primary-color);
+.User-Infomation__Description--Email1 {
+    
+    grid-area: email1;
+    padding-top: 13px;
+    text-align: right;
+    color: rgba(85, 85, 85, 0.8);
 }
 
-.sidebar a:hover {
-    color: var(--primary-color);
-}
-
-.my-purchase {
-    margin-left: 27px;
-    right: 0px;
-    flex: 1;
-}
-
-.list-purchase {
+.User-Infomation__Description--Email2 {
+    padding-top: 12px;
+    grid-area: email2;
+    padding-left: 20px;
     display: flex;
+    padding-bottom: 80px;
+}
+
+.User-Infomation__Description--Email {
+    padding-top: 1px;
+}
+
+.User-Infomation__Description--Change-Email {
+    background: none;
+    border: 0px;
+    color: rgb(0, 85, 170);
+    text-decoration: underline;
+}
+
+.User-Infomation__Description--Phone1 {
+    grid-area: phone1;
+    text-align: right;
+    padding-top: 13px;
+    color: rgba(85, 85, 85, 0.8);
+}
+
+.User-Infomation__Description--Phone2 {
+    grid-area: phone2;
+    padding-left: 20px;
+    display: flex;
+    padding-bottom: 80px;
+    padding-top: 13px;
+}
+
+.User-Infomation__Description--Phone {
+    padding-top: 1px;
+}
+
+.User-Infomation__Description--Change-Phone {
+    background: none;
+    border: 0px;
+    color: rgb(0, 85, 170);
+    text-decoration: underline;
+}
+
+.User-Infomation__Description--Gender1 {
+    padding-top: 13px;
+    grid-area: gender1;
+    text-align: right;
+    color: rgba(85, 85, 85, 0.8);
+}
+
+.User-Infomation__Description--Gender2 {
+    padding-top: 13px;
+    grid-area: gender2;
+    padding-left: 20px;
+    display: flex;
+}
+
+.User-Infomation__Description--Gender--Choose {
+    margin-right: 5px;
+}
+
+input[type="radio"] {
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+}
+
+.User-Infomation__Description--Date1 {
+    padding-top: 13px;
+    grid-area: date1;
+    text-align: right;
+    color: rgba(85, 85, 85, 0.8);
+}
+
+.User-Infomation__Description--Date2 {
+    grid-area: date2;
+    padding-top: 11px;  
+    padding-left: 20px;
+}
+
+.User-Infomation__Description--Save {
+    grid-area: save2;
+    padding-left: 20px;
+    padding-top: 13px;
+}
+
+.User-Infomation__Description--Save button {
+    background: #ee4d2d;
+    color: #fff;
+    height: 40px;
+    width: 70px;
+    border: none;
+}
+
+
+.User-Infomation__Description--Save button:hover {
+    background: #eb9382;
+}
+
+.User-Infomation__Update-Avatar {
+    display: flex;
+    align-items: center;
     flex-direction: column;
-    justify-content: space-between;
-    padding-left: 0px;
+    padding-top: 50px;
 }
 
-.purchase-item {
-    background-color: #ffffff;
-    display: flex;
-    height: 105px;
-    padding: 25px 25px;
-    margin-top: 15px;
+.User-Infomation__Update-Avatar--Avatar {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50px;
+    display: block;
 }
 
-.item_picture {
-    width: 80px;
-    object-fit: contain;
+.User-Infomation__Update-Avatar button {
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    font-size: 1.5rem;
+    height: 35px;
+    margin-top: 20px;
+    width: auto;
+    padding: 2px 18px;
+    background-color: #fff;
 }
 
-.item_info {
-    font-size: 16px;
-    flex: 6;
-    justify-content: center;
-}
-
-.item_info-name {
-    text-decoration: none;
-    color: var(--black-color);
-}
-
-.item_price {
-    flex: 1;
-    font-size: 16px;
-    text-align: end;
+.User-Infomation__Upload-Button {
+    
 }

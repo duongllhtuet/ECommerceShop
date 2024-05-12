@@ -1,12 +1,13 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { assets } from '../../assets/assets'
 import './Header.css';
 import { StoreContext } from '../../context/StoreContext.jsx';
+import axios from 'axios';
 
 const Header = ({ setShowLogin }) => {
 
-    const {token, setToken} = useContext(StoreContext); // lay gia tri tu context
+    const {token, setToken, url} = useContext(StoreContext); // lay gia tri tu context
 
     const navigate = useNavigate();
 
@@ -15,6 +16,26 @@ const Header = ({ setShowLogin }) => {
         setToken("");
         navigate("/")
     }
+
+    const [image, setImage] = useState(false)
+    const [user, setUser] = useState({})
+
+    const getUser = async () => {
+        const response = await axios.post(url + "/api/user/get", {}, {headers: {token}});
+        if (response.data.success) {
+            const userData = response.data.data;
+            setUser(userData);
+              if(userData.picture) {
+                setImage(url + "/images/" + userData.picture)
+            }
+        } else {
+            console.log("Error")
+        }
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [token])
 
   return (
     <header className="header">
@@ -80,8 +101,8 @@ const Header = ({ setShowLogin }) => {
                 </>
             ) : (<li className="header__navbar--item Header__Navbar--User">
               <img
-                src="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/247810700_1069744317560635_7349963908123137132_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=z06GmgSLSgkAX8mrW_9&tn=u4pq1EfURnFbcfg8&_nc_ht=scontent.fhan14-3.fna&oh=498a91ae9d8f09d761f3ffef1d075f4f&oe=624B5FE4"
-                alt="Avatar"
+                // src={image ? image : assets.defaultAvatar}
+                src = ""
                 className="header__navbar--user-avatar"
               />
 
@@ -89,13 +110,13 @@ const Header = ({ setShowLogin }) => {
 
               <ul className="header__navbar--user-options">
                 <li className="header__navbar--user-option">
-                  <a onClick={() => navigate('/user')} className="header__navbar--user-option--link">
+                  <a onClick={() => navigate('/profile')} className="header__navbar--user-option--link">
                     <i className="header__navbar--user-option--icon fa-solid fa-user-circle"></i>
                     Tài khoản của tôi
                   </a>
                 </li>
                 <li className="header__navbar--user-option">
-                  <a onClick={() => navigate('/order')} className="header__navbar--user-option--link">
+                  <a onClick={() => navigate('/myorders')} className="header__navbar--user-option--link">
                     <i className="header__navbar--user-option--icon fa-solid fa-money-bill-wave"></i>
                     Sản phẩm đã mua
                   </a>
