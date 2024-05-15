@@ -37,7 +37,7 @@ const Cart = () => {
                                   <p>${item.price}</p>
                                   <p>{cart.quantity}</p>
                                   <p>${item.price * cart.quantity}</p>
-                                  <p onClick={() => removeFromCart(item._id)} className='cross'>x</p>
+                                  <p onClick={() => removeFromCart(item._id, cart.size)} className='cross'>x</p>
                               </div>
                               <hr />
                           </div>

@@ -42,13 +42,16 @@ const StoreContextProvider = (props) => {
     };
     
     const removeFromCart = async (itemId, size) => {
-        const existingItemIndex = cartItems.findIndex(cart => cart.productId === itemId && cart.size === size);
+        let existingItemIndex = -1
+        if (cartItems) {
+            existingItemIndex = cartItems.findIndex(cart => cart.productId === itemId && cart.size === size);
+        }
 
-        if (existingItemIndex !== -1 && cartItems[existingItemIndex].quantity > 0) {
-            // Nếu mặt hàng tồn tại và số lượng lớn hơn 0, giảm số lượng đi 1
+        if (existingItemIndex !== -1) {
+            // Nếu mặt hàng đã tồn tại trong giỏ hàng, cập nhật số lượng
             const updatedCartItems = [...cartItems];
             updatedCartItems[existingItemIndex].quantity -= 1;
-            setCartItems(updatedCartItems);
+            setCartItems(updatedCartItems)
 
             if (token) {
                 await axios.post(url + "/api/cart/remove", { itemId, size }, { headers: { token } });

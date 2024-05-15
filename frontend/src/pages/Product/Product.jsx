@@ -16,6 +16,7 @@ const Product = () => {
 
   const [size, setSize] = useState("M");
   const [quantity, setQuantity] = useState(1);
+  const [averageRating, setAverageRating] = useState(null);
 
   const fetchProduct = async () => {
       const response = await axios.get(url + `/api/product/${id}`);
@@ -28,6 +29,19 @@ const Product = () => {
 
   useEffect (() => {
     fetchProduct()
+
+    const calculateAverageRating = () => {
+      if (data.ratings && data.ratings.length > 0) {
+        let total = 0;
+        data.ratings.forEach(rate => {
+          total += rate.rating;
+        });
+        return (total / data.ratings.length).toFixed(1);
+      }
+      return null;
+    };
+
+    setAverageRating(calculateAverageRating());
   })
 
   const onChangeHandler = (event) => {
@@ -35,6 +49,15 @@ const Product = () => {
     value = Math.max(1, value);
     setQuantity(value);
   }
+
+  const calculateAverageRating = async () => {
+      let total = 0;
+      data.ratings.map((rate, index) => {
+          total += rate.rating
+      })
+      console.log((total / data.ratings.length).toFixed(1))
+      return (total / data.ratings.length).toFixed(1);
+  };
 
   return (
     <div className="App__Container">
@@ -48,16 +71,6 @@ const Product = () => {
                   alt=""
                   className="product__img--main"
                 />
-      
-                {/* <ul className="product__imgs">
-                  <li className="product__img">
-                    <img
-                      src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltp03ksjtnuy7b"
-                      alt=""
-                      className="product__img--link"
-                    />
-                  </li>
-                </ul> */}
               </div>
       
               <div className="col l-7">
@@ -190,71 +203,40 @@ const Product = () => {
                 ĐÁNH GIÁ SẢN PHẨM
               </div>
       
-              <div className="row product--rating--score">
-                <div className="col c-3">
-                  <div className="Product-Rating__Score">
-                    <div className="Product-Rating__Score--Score">
-                      <span className="Product-Rating__Score--Score--highlight">
-                        {data.rating && data.rating.length > 0 ? (
-                          <>
-                            {data.rating.reduce((acc, rate) => acc + rate, 0) / data.rating.length} trên 5
-                          </>
-                        ) : (
-                          <span>Không có đánh giá</span>
-                        )}
-                      </span>
+              {data.ratings && data.ratings.length > 0 ? (
+                <>
+                  <div className="row product--rating--score">
+                    <div className="col c-3">
+                      <div className="Product-Rating__Score">
+                        <div className="Product-Rating__Score--Score">
+                          <span className="Product-Rating__Score--Score--highlight">
+                            <span>{averageRating} trên 5</span>
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="Product-Rating__List">
-                <div className="Product-Rating__Main">
-                  <div className="Product-Rating__Main--Avatar">
-                    <img
-                      src="https://i.pinimg.com/564x/89/31/e0/8931e0c19e5bfca74c58e1c29625c46a.jpg"
-                    />
-                  </div>
-                  <div className="Product-Rating__Main--Name">
-                    Phạm Chiến
-                  </div>
-                  <div className="Product-Rating__Main--Score">
-                    <img src="img/star.png" />
-                    <img src="img/star.png" />
-                    <img src="img/star.png" />
-                    <img src="img/star.png" />
-                    <img src="img/starnofill.png" />
-                  </div>
-                  <div className="Product-Rating__Main--Time">
-                    2024-04-12 14:51
-                  </div>
-                  <div className="Product-Rating__Main--Comment">
-                    Hàng đẹp lắm
-                  </div>
-                  <div className="Product-Rating__Main--Image">
-                    <img
-                      src="https://i.pinimg.com/564x/77/c2/15/77c215a82ef476da53f0d32126eeb98f.jpg"
-                    />
-                    <img
-                      src="https://i.pinimg.com/564x/77/c2/15/77c215a82ef476da53f0d32126eeb98f.jpg"
-                    />
-                    <img
-                      src="https://i.pinimg.com/564x/77/c2/15/77c215a82ef476da53f0d32126eeb98f.jpg"
-                    />
-                    <img
-                      src="https://i.pinimg.com/564x/77/c2/15/77c215a82ef476da53f0d32126eeb98f.jpg"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="Product-Rating__Limit">
-                <button className="Product-Rating__Limit--Left"> &lt; </button>
-                <button className="Product-Rating__Limit--Change active">1</button>
-                <button className="Product-Rating__Limit--Change">2</button>
-                <button className="Product-Rating__Limit--Change">3</button>
-                <button className="Product-Rating__Limit--Change">4</button>
-                <button className="Product-Rating__Limit--Change">5</button>
-                <button className="Product-Rating__Limit--Right"> &gt; </button>
-              </div>
+                  {data.ratings.map((rate, index) => {
+                    return (
+                    <div key={index} className="Product-Rating__List">
+                      <div className="Product-Rating__Main">
+                        <div className="Product-Rating__Main--Name">
+                          {rate.userId}
+                        </div>
+                        <div className="">
+                          {rate.rating}
+                        </div>
+                        <div className="Product-Rating__Main--Comment">
+                          {rate.comment}
+                        </div>
+                      </div>
+                    </div>
+                    )
+                  })}
+                </>
+              )  : (
+                <span>Không có đánh giá</span>
+              )}
             </div>
           </div>
         </div>

@@ -82,3 +82,21 @@
     font-size: 16px;
     text-align: end;
 }
+
+.cant-rating {
+    border: none;
+    padding: 12px 0px;
+    border-radius: 4px;
+    background-color: #ffe1e1;
+    cursor: pointer;
+    color: #454545;
+}
+
+.can-rating {
+    border: none;
+    padding: 12px 0px;
+    border-radius: 4px;
+    background-color: #e1ffe6;
+    cursor: pointer;
+    color: #454545;
+}
