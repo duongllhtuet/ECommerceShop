@@ -110,8 +110,7 @@ const Header = ({ setShowLogin }) => {
             ) : (
               <li className="header__navbar--item Header__Navbar--User">
                 <img
-                  // src={image ? image : assets.defaultAvatar}
-                  src=""
+                  src={image ? image : assets.defaultAvatar}
                   className="header__navbar--user-avatar"
                 />
 
