@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './User.css'
 import { StoreContext } from '../../context/StoreContext'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { assets } from '../../assets/assets';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 const Profile = () => {
 
@@ -15,20 +15,33 @@ const Profile = () => {
         name: "",
         email: "",
         phone: "",
-      })
+        address: "",
+    })
 
     const [user, setUser] = useState({})
+
+    const navigate = useNavigate();
 
     const getUser = async () => {
         const response = await axios.post(url + "/api/user/get", {}, {headers: {token}});
         if (response.data.success) {
             const userData = response.data.data;
             setUser(userData);
-            setData({
-                name: userData.name,
-                email: userData.email,
-                phone: userData.phoneNumber,
-            })
+            
+            if (userData.address) {
+                setData({
+                    name: userData.name,
+                    email: userData.email,
+                    phone: userData.phoneNumber,
+                    address: userData.address
+                })
+            } else {
+                setData({
+                    name: userData.name,
+                    email: userData.email,
+                    phone: userData.phoneNumber,
+                })
+            }
             if(userData.picture) {
                 setImage(url + "/images/" + userData.picture)
             }
@@ -50,11 +63,13 @@ const Profile = () => {
     const SaveProfile = async (event) => {
         event.preventDefault();
         if (data.name !== user.name || data.email !== user.email || data.phone !== user.phone) {
+            event.preventDefault();
             const formData = new FormData();
             formData.append('name', data.name)
             formData.append('email', data.email)
             formData.append('phone', data.phone)
-            formData.append('image', image)
+            formData.append('address', data.address)
+            formData.append('image',image)
             const response = await axios.put(url + "/api/user/modify", formData, {headers: {token}});
             if (response.data.success) {
                 console.log(response.data.message)
@@ -63,15 +78,6 @@ const Profile = () => {
             }
         }
     }
-
-    const handleImageChange = (e) => {
-        const selectedImage = e.target.files[0];
-        if (selectedImage) {
-          setImage(URL.createObjectURL(selectedImage));
-        } else {
-          setImage(null); // Nếu người dùng không chọn ảnh, đặt image về null
-        }
-    };
 
 
   return (
@@ -83,7 +89,7 @@ const Profile = () => {
                         <i className="fa-regular fa-user"></i>
                         <p>My Account</p>
                     </a>
-                    <a onClick={() => navigate('/purchase')} className="sidebar-child">
+                    <a onClick={() => navigate('/myorders')} className="sidebar-child">
                         <i className="fa-solid fa-clipboard-list"></i>
                         <p>My Purchase</p>
                     </a>
@@ -117,11 +123,17 @@ const Profile = () => {
                     <div className="User-Infomation__Description--Phone2">
                         <input required type="tel" name="phone" value={data.phone} onChange={ onChangeHandler } />
                     </div>
+                    <div className="">
+                        Địa chỉ
+                    </div>
+                    <div className="">
+                        <input required type="text" name="address" value={data.address} onChange={ onChangeHandler } />
+                    </div>
                 </div>
             
                 <div className="User-Infomation__Update-Avatar">
                     <img src={image ? image : assets.defaultAvatar} className="User-Infomation__Update-Avatar--Avatar" alt="" />
-                    <input onChange={handleImageChange} type='file' id='image' hidden />
+                    <input onChange={(e) => setImage(e.target.files[0])} type='file' id='image' hidden required />
                     <label htmlFor="image" className="User-Infomation__Upload-Button">Chọn ảnh</label>
                 </div>
 

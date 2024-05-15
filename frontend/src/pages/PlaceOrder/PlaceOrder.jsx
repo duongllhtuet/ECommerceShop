@@ -22,12 +22,20 @@ const PlaceOrder = () => {
     if (response.data.success) {
         const userData = response.data.data;
         setUser(userData);
-        setData({
-          name: userData.name,
-          street: "",
-          city: "",
-          phone: userData.phoneNumber,
-        });
+        if (userData.address) {
+            setData({
+                name: userData.name,
+                city: "",
+                phone: userData.phoneNumber,
+                address: userData.address
+            })
+        } else {
+            setData({
+                name: userData.name,
+                city: "",
+                phone: userData.phoneNumber,
+            })
+        }
     } else {
         console.log("Error")
     }
@@ -44,16 +52,17 @@ const PlaceOrder = () => {
       let orderItems = [];
 
       product_list.map((item) => {
-      if (cartItems && cartItems.length > 0) {
-          cartItems.map((cart, index) => { 
-              if (cart.quantity > 0) {
-                let itemInfo = item
-                itemInfo["Quantity"] = cart.quantity
-                itemInfo["Size"] = cart.size
-                orderItems.push(itemInfo);
-              }
-          })
-      }})
+        if (user.cartData && user.cartData.length > 0) {
+            user.cartData.map((cart, index) => { 
+                if (cart.quantity > 0 && cart.productId === item._id) {
+                  let itemInfo = item
+                  itemInfo["Quantity"] = cart.quantity
+                  itemInfo["Size"] = cart.size
+                  orderItems.push(itemInfo);
+                }
+            })
+        }
+      })
 
       let orderData = {
           address: data,

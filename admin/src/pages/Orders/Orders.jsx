@@ -52,17 +52,17 @@ const Orders = ({url}) => {
                                     })
                                 }
                             </p>
-                            <p className="order-item-name">{order.address.firstName + " " + order.address.lastName}</p>
+                            <p className="order-item-name">{order.address.name}</p>
                             <div className="order-item-address">
                                 <p>{order.address.street + ","}</p>
-                                <p>{order.address.city + ", " + order.address.state + ", " + order.address.country + ", " + order.address.zipcode}</p>
+                                <p>{order.address.city}</p>
                             </div>
                             <p className='order-item-phone'>{order.address.phone}</p>
                         </div>
                         <p>Items : {order.items.length}</p>
-                        <p>${order.amount}</p>
+                        <p>VND {order.amount}</p>
                         <select onChange={(event) => statusHandler(event, order._id)} value={order.status}>
-                            <option value="Food processing">Food processing</option>
+                            <option value="Product processing">Food processing</option>
                             <option value="Out of delivery">Out of delivery</option>
                             <option value="Delivered">Delivered</option>
                         </select>

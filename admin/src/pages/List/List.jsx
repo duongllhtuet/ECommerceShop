@@ -38,15 +38,17 @@ const List=({url}) => {
                     <b>Image</b>
                     <b>Name</b>
                     <b>Category</b>
+                    <b>Sex</b>
                     <b>Price</b>
                     <b>Action</b>
                 </div>
                 {list.map((item, index)=>{
                     return (
                         <div key={index} className='list-table-format'>
-                            <img src={`${url}/images/` +item.image} alt=""/>
+                            <img src={`${url}/images/` + item.picture} alt=""/>
                             <p>{item.name}</p>
                             <p>{item.category}</p>
+                            <p>{item.sex}</p>
                             <p>${item.price}</p>
                             <p onClick={()=>removeFood(item._id)} className='cursor'>X</p>
                         </div>

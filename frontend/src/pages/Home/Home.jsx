@@ -61,7 +61,10 @@ const Home = () => {
                                 {data.map((item, index) => {
                                     if(sex==="All" || sex===item.sex){
                                         return (
-                                            <ProductItem key={index} id={item._id} name={item.name} description={item.description} price={item.price} image={item.picture} selling={item.selling} />
+                                            <ProductItem key={index} id={item._id} name={item.name} 
+                                                description={item.description} price={item.price} 
+                                                image={item.picture} selling={item.selling} 
+                                            />
                                         )
                                     }
                                 })}

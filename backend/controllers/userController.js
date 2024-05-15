@@ -93,13 +93,15 @@ const modifyUser = async (req, res) => {
 
     try {
         const user = await userModel.findById(req.body.userId);
-        if (user.picture) {
-            fs.unlink(`uploads/${user.picture}`,()=>{})
-        }
+
         user.name = req.body.name
         user.email = req.body.email
         user.phoneNumber = req.body.phone
+        user.address = req.body.address
         if (req.file) {
+            if (user.picture) {
+                fs.unlink(`uploads/${user.picture}`,()=>{})
+            }
             user.picture = image_filename;
         }
         await user.save();
