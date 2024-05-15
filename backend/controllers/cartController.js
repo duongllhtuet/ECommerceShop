@@ -33,7 +33,7 @@ const removeFromCart = async (req, res) => {
         let cartData = userData.cartData;
         let existingProductIndex = cartData.findIndex(item => item.productId === req.body.itemId && item.size === req.body.size);
 
-        if (existingProductIndex !== -1) {
+        if (existingProductIndex !== -1 && cartData[existingProductIndex].quantity > 0) {
             cartData[existingProductIndex].quantity--;
         }
         

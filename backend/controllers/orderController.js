@@ -1,5 +1,6 @@
 import orderModel from "../models/orderModel.js"
 import userModel from "../models/userModel.js"
+import productModel from "../models/productModel.js"
 import Stripe from "stripe"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
@@ -13,19 +14,29 @@ const placeOrder = async (req, res) => {
         const newOrder = new orderModel({
             userId: req.body.userId,
             items: req.body.items,
-            size: req.body.size,
             amount: req.body.amount,
             address: req.body.address,
         })
         await newOrder.save();
+
+        const order = await orderModel.findById(newOrder._id)
+
+        await userModel.findByIdAndUpdate(req.body.userId, {cartData:[]})
+
+        for (const item of order.items) {
+            console.log(item._id)
+            await productModel.findByIdAndUpdate(item._id, {
+                $inc: {selling: item.Quantity}
+            });
+        }
         
         const line_items = req.body.items.map((item) => ({
             price_data: {
                 currency: "usd",
                 product_data: {
-                    name: item.name
+                    name: item.name + "(" + item.Size + ")"
                 },
-                unit_amount: Math.round(item.price*0.000039)
+                unit_amount: Math.round(item.price*0.0039)
             },
             quantity: item.Quantity
         }))
@@ -36,7 +47,7 @@ const placeOrder = async (req, res) => {
                 product_data: {
                     name: "Delivery Charges"
                 },
-                unit_amount: Math.round(30000*0.000039)
+                unit_amount: Math.round(30000*0.0039)
             },
             quantity: 1 
         })
@@ -60,9 +71,10 @@ const placeOrder = async (req, res) => {
 const verifyOrder = async(req, res) => {
     const {orderId, success} = req.body;
     try {
-        if (success == "true") {
-            await orderModel.findByIdAndUpdate(orderId, {payment: true});
-            await userModel.findByIdAndUpdate(req.body.userId, {cartData:[]});
+        if (success === "true") {
+
+            await orderModel.findByIdAndUpdate(orderId, {payment: true})
+            
             res.json({success: true, message: "Paid"})
         } else {
             await orderModel.findByIdAndUpdate(orderId)

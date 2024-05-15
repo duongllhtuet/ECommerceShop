@@ -11,6 +11,7 @@ import Cart from './pages/Cart/Cart'
 import Verify from './pages/Verify/Verify'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const App = () => {
