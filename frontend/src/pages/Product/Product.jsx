@@ -94,7 +94,7 @@ const Product = () => {
                     <div className="product__information--rating">
                       <div className="product__information--rating--number">
                         <span className="product__information--rated--number">
-                          {data.rating ? data.rating.length : 0}
+                          {data.ratings ? data.ratings.length : 0}
                         </span>
       
                         <span className="product__information--rated--title">
