@@ -11,33 +11,45 @@ const Cart = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='cart'>
-      <div className="cart-items">
+    <div className='cart grid wide'>
+      <div className="row sm--gutter cart-items-title">
         <div className="cart-items-title">
-          <p>Items</p>
-          <p>Title</p>
-          <p>Size</p>
-          <p>Price</p>
-          <p>Quantity</p>
-          <p>Total</p>
-          <p>Remove</p>
+          <div className="col l-11 cart-items--title--modify">
+              <p className='col l-2'>Items</p>
+              <p className='col l-2'>Title</p>
+              <p className='col l-2'>Size</p>
+              <p className='col l-2'>Price</p>
+              <p className='col l-2'>Quantity</p>
+              <p className='col l-2'>Total</p>
+          </div>
+
+          <div className="col l-1">
+              <p className='col l-1'>Remove</p>
+          </div>
         </div>
         <br />
-        <hr />
-        {product_list.map((item, index) => {
+      </div>
+
+      {product_list.map((item, index) => {
           if (cartItems && cartItems.length > 0) {
               const cartElements = cartItems.map((cart, cartIndex) => {
                   if (cart.productId === item._id && cart.quantity > 0) {
                       return (
-                          <div key={cartIndex}>
-                              <div className="cart-items-title cart-items-item" key={cartIndex}>
-                                  <img src={url + "/images/" + item.picture} alt="" />
-                                  <p>{item.name}</p>
-                                  <p>{cart.size}</p>
-                                  <p>${item.price}</p>
-                                  <p>{cart.quantity}</p>
-                                  <p>${item.price * cart.quantity}</p>
-                                  <p onClick={() => removeFromCart(item._id, cart.size)} className='cross'>x</p>
+                          <div key={cartIndex} className='cart--item--modify'>
+                              <hr />
+                              <div className="row sm--gutter cart-items-title cart-items-item" key={cartIndex}>
+                                <div className="col l-11 cart-items--title--modify--option--1">
+                                  <img className='col l-2' src={url + "/images/" + item.picture} alt="" />
+                                  <p className='col l-2'>{item.name}</p>
+                                  <p className='col l-2'>{cart.size}</p>
+                                  <p className='col l-2'>${item.price}</p>
+                                  <p className='col l-2'>{cart.quantity}</p>
+                                  <p className='col l-2'>${item.price * cart.quantity}</p>
+                                </div>
+
+                                <div className="col l-1">
+                                  <p className='col l-12' onClick={() => removeFromCart(item._id, cart.size)} className='cross'>x</p>
+                                </div>
                               </div>
                               <hr />
                           </div>
@@ -49,7 +61,7 @@ const Cart = () => {
           }
           return null; // Trường hợp cartItems không tồn tại hoặc không có phần tử
       })}
-      </div>
+
       <div>
         <div className="cart-bottom">
           <div className="cart-total">

@@ -144,7 +144,7 @@ const Header = ({ setShowLogin }) => {
                       className="header__navbar--user-option--link"
                     >
                       <i className="header__navbar--user-option--icon fa-solid fa-money-bill-wave"></i>
-                      giỏ hàng
+                      Giỏ hàng
                     </a>
                   </li>
 
