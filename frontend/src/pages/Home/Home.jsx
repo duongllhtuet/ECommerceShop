@@ -25,7 +25,7 @@ const Home = () => {
     fetchProduct();
   }, []);
 
-  const handleCategoryClick = (selectedCategory) => {
+  const handleCategoryClicks = (selectedCategory) => {
     setSex(selectedCategory);
   };
 
@@ -38,13 +38,13 @@ const Home = () => {
               <h3 className="Category__Heading">Danh mục</h3>
               <ul className="Category--List">
                 <li className={`Category--Item ${sex === "All" ? "Category--Item--Active" : ""}`}>
-                  <div className="Category--Item__Link" onClick={() => handleCategoryClick("All")}>Tất cả</div>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("All")}>Tất cả</div>
                 </li>
                 <li className={`Category--Item ${sex === "Men" ? "Category--Item--Active" : ""}`}>
-                  <div className="Category--Item__Link" onClick={() => handleCategoryClick("Men")}>Thời trang nam</div>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Men")}>Thời trang nam</div>
                 </li>
                 <li className={`Category--Item ${sex === "Women" ? "Category--Item--Active" : ""}`}>
-                  <div className="Category--Item__Link" onClick={() => handleCategoryClick("Women")}>Thời trang nữ</div>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Women")}>Thời trang nữ</div>
                 </li>
               </ul>
             </nav>
