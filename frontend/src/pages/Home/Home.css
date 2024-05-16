@@ -68,7 +68,6 @@
   transition: right linear 0.1s;
   right: 0;
   cursor: pointer;
-  user-select: none;
 }
 
 .Category--Item__Link:hover {

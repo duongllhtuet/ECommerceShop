@@ -51,6 +51,8 @@
     /* gap: max(12vw, 20px); */
     font-size: 1.3rem;
     margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .cart-total {
