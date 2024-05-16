@@ -543,6 +543,7 @@
   color: var(--white-color);
   font-size: 2.4rem;
   margin-top: 6px;
+  width: 27px;
 }
 
 
@@ -1172,12 +1173,15 @@
 }
 
 .Home--Product--Item__Img {
-  padding-top: 100%;
+  /* padding-top: 100%; */
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top center;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding-top: 0;
 }
 
 .Home--Product--Item__Name {
@@ -1193,12 +1197,14 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  text-decoration: none;
 }
 
 .Home--Product--Item__Price {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
+  padding: 10px 0;
 }
 
 .Home--Product--Item__Price--Old {

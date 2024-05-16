@@ -4,6 +4,8 @@ import { assets } from "../../assets/assets";
 import "./Header.css";
 import { StoreContext } from "../../context/StoreContext.jsx";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({ setShowLogin }) => {
   const { token, setToken, url } = useContext(StoreContext); // lay gia tri tu context
@@ -111,13 +113,12 @@ const Header = ({ setShowLogin }) => {
               <li className="header__navbar--item Header__Navbar--User">
                 <img
                   src={image ? image : assets.defaultAvatar}
-                  className="header__navbar--user-avatar"
+                  className="Header__Navbar--User--Img"
                 />
+                <span className="Header__Navbar--User--Name">Đào Hải Long</span>
 
-                {/* <span className="header__navbar--user-name">Đào Hải Long</span> */}
-
-                <ul className="header__navbar--user-options">
-                  <li className="header__navbar--user-option">
+                <ul className="Header__Navbar--User--Menu">
+                  <li className="Header__Navbar--User--Item">
                     <a
                       onClick={() => navigate("/profile")}
                       className="header__navbar--user-option--link"
@@ -126,7 +127,8 @@ const Header = ({ setShowLogin }) => {
                       Tài khoản của tôi
                     </a>
                   </li>
-                  <li className="header__navbar--user-option">
+
+                  <li className="Header__Navbar--User--Item">
                     <a
                       onClick={() => navigate("/myorders")}
                       className="header__navbar--user-option--link"
@@ -135,7 +137,8 @@ const Header = ({ setShowLogin }) => {
                       Sản phẩm đã mua
                     </a>
                   </li>
-                  <li className="header__navbar--user-option">
+
+                  <li className="Header__Navbar--User--Item">
                     <a
                       onClick={() => navigate("/cart")}
                       className="header__navbar--user-option--link"
@@ -144,7 +147,8 @@ const Header = ({ setShowLogin }) => {
                       giỏ hàng
                     </a>
                   </li>
-                  <li className="header__navbar--user-option">
+
+                  <li className="Header__Navbar--User--Item">
                     <a
                       onClick={logout}
                       className="header__navbar--user-option--link"
@@ -183,10 +187,10 @@ const Header = ({ setShowLogin }) => {
             id="mobile--search--checkbox"
             class="header__search--checkbox"
           />
-          
+
           <div class="Header__Cart">
             <div class="Header__Cart--Wrap">
-              <i class="fa-solid fa-cart-shopping Header__Cart--Icon"></i>
+            <FontAwesomeIcon class="Header__Cart--Icon" icon={faCartShopping} />
 
               <span class="Header__Cart--Notice">3</span>
 
