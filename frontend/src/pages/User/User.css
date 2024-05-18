@@ -1,4 +1,4 @@
-.Container-User {
+/* .Container-User {
     margin: 100px 10% 20px 10% ;
     height: 592px;
     width: 1200px;
@@ -8,6 +8,10 @@
     grid-template-rows: auto;
     grid-template-areas: 
     "Side User"
+}
+
+.grid.wide.profile {
+    margin-top: 15px;
 }
 
 .Side-Bar {
@@ -27,17 +31,6 @@
     "description avatar"
 }
 
-.User-Infomation__Title {
-    grid-area: title;
-    font-size: 18px;
-}
-
-.User-Infomation__Overview {
-    grid-area: view;
-    font-size: 14px;
-    border-bottom: 0.0625rem solid rgb(239, 239, 239);
-    color: rgb(85, 85, 85);
-}
 
 .User-Infomation__Description {
     font-size: 14px;
@@ -230,4 +223,139 @@ input[type="radio"] {
 
 .User-Infomation__Upload-Button {
     
+} */
+
+.side-bar {
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+}
+
+.sidebar-child {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar-child i {
+    margin-right: 10px;
+}
+
+.sidebar-child.current {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.profile {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.User-Information {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.User-Information__Title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.User-Information__Overview {
+    font-size: 14px;
+    color: #666;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.User-Information__Description {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.User-Information__Description::before {
+
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    right: -56px;
+}
+
+.User-Information_Description--Detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.User-Information_Description--Detail--Modify {
+    flex: 0 0 40%;
+    font-weight: bold;
+    text-align: right;
+}
+
+.User-Information_Description--Detail--Modify--Option {
+    display: flex;
+    align-content: center;
+}
+
+.User-Information__Description--Detail--Modify--Input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.col.l-4.User-Information__Update-Avatar {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: column;
+}
+
+.User-Infomation__Update-Avatar--Avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.User-Infomation__Upload-Button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.User-Infomation__Description--Save {
+
+    text-align: center;
+    position: relative;
+    left: -161px;
+    /* height: 32px; */
+}
+
+.User-Infomation__Description--Save button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.User-Infomation__Description--Save button:hover {
+    background-color: #218838;
 }
