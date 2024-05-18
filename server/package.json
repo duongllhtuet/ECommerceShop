@@ -5,7 +5,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "build": "npm install --prefix ./frontend && npm run build --prefix ./frontend && npm install"
   },
   "author": "",
   "license": "ISC",
