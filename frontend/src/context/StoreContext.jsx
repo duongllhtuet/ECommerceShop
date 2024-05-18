@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const StoreContext = createContext(null)
 
@@ -38,6 +40,7 @@ const StoreContextProvider = (props) => {
         
         if (token) {
             await axios.post(url + "/api/cart/add", { itemId, size, quantity }, { headers: { token } });
+            toast.success("Đã thêm sản phẩm vào giỏ hàng")
         }
     };
     

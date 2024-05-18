@@ -4,12 +4,15 @@ import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { assets } from "../../assets/assets";
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Profile = () => {
   const { token, url } = useContext(StoreContext);
 
-  const [image, setImage] = useState(false);
+  const [imageFile, setImageFile] = useState(null); // Tệp thực tế
+  const [imageURL, setImageURL] = useState(false);
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -46,7 +49,7 @@ const Profile = () => {
         });
       }
       if (userData.picture) {
-        setImage(url + "/images/" + userData.picture);
+        setImageURL(url + "/images/" + userData.picture);
       }
     } else {
       console.log("Error");
@@ -68,7 +71,8 @@ const Profile = () => {
     if (
       data.name !== user.name ||
       data.email !== user.email ||
-      data.phone !== user.phone
+      data.phone !== user.phone ||
+      data.address !== user.address
     ) {
       event.preventDefault();
       const formData = new FormData();
@@ -76,14 +80,14 @@ const Profile = () => {
       formData.append("email", data.email);
       formData.append("phone", data.phone);
       formData.append("address", data.address);
-      formData.append("image", image);
+      formData.append("image", imageFile);
       const response = await axios.put(url + "/api/user/modify", formData, {
         headers: { token },
       });
       if (response.data.success) {
-        console.log(response.data.message);
+        toast.success(response.data.message)
       } else {
-        console.log(response.data.message);
+        toast.error(response.data.message)
       }
     }
   };
@@ -164,7 +168,6 @@ const Profile = () => {
                     </div>
 
                     <input
-                      required
                       className="col l-7 User-Information__Description--Detail--Modify--Input"
                       type="text"
                       name="address"
@@ -176,16 +179,18 @@ const Profile = () => {
 
                 <div className="col l-4 User-Information__Update-Avatar" style={{ paddingLeft: "80px", paddingTop: "14px" }}>
                   <img
-                    src={image ? image : assets.defaultAvatar}
+                    src={imageURL ? imageURL : assets.defaultAvatar}
                     className="User-Infomation__Update-Avatar--Avatar"
                     alt=""
                   />
                   <input
-                    onChange={(e) => setImage(e.target.files[0])}
+                    onChange={(e) => {
+                      setImageFile(e.target.files[0]);
+                      setImageURL(URL.createObjectURL(e.target.files[0]));
+                    }}
                     type="file"
                     id="image"
                     hidden
-                    required
                   />
                   <label
                     htmlFor="image"

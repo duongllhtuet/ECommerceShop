@@ -38,13 +38,24 @@ const Home = () => {
               <h3 className="Category__Heading">Danh mục</h3>
               <ul className="Category--List">
                 <li className={`Category--Item ${sex === "All" ? "Category--Item--Active" : ""}`}>
-                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("All")}>Tất cả</div>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("All")}>Giới tính</div>
                 </li>
                 <li className={`Category--Item ${sex === "Men" ? "Category--Item--Active" : ""}`}>
                   <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Men")}>Thời trang nam</div>
                 </li>
                 <li className={`Category--Item ${sex === "Women" ? "Category--Item--Active" : ""}`}>
                   <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Women")}>Thời trang nữ</div>
+                </li>
+              </ul>
+              <ul className="Category--List">
+                <li className={`Category--Item ${category === "All" ? "Category--Item--Active" : ""}`}>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("All")}>Loại</div>
+                </li>
+                <li className={`Category--Item ${category === "Men" ? "Category--Item--Active" : ""}`}>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Men")}>Áo ngắn</div>
+                </li>
+                <li className={`Category--Item ${category === "Women" ? "Category--Item--Active" : ""}`}>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Women")}>Quần dài</div>
                 </li>
               </ul>
             </nav>

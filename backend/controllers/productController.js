@@ -68,7 +68,7 @@ const addComment = async (req, res) => {
         });
         
         await product.save();
-        res.json({success:true, message:"Added comment"});
+        res.json({success:true, message:"Đánh giá thành công"});
     } catch (error) {
         console.log(error);
         res.json({success:false, message:"Error"})

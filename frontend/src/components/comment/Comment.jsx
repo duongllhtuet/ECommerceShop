@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import './Comment.css'
 import { StoreContext } from '../../context/StoreContext';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Comment = ({ setShowComment, commentData }) => {
 
@@ -22,6 +24,7 @@ const Comment = ({ setShowComment, commentData }) => {
 
         let response = await axios.post(url + `/api/product/${commentData._id}`, ratingData, {headers: {token}});
         if (response.data.success) {
+            toast.success(response.data.message)
             setShowComment(false)
         } else {
             console.log("Error")

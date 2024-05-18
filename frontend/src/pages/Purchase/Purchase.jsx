@@ -32,8 +32,8 @@ const Order = () => {
 
   const handleRatingClick = (order, item) => {
     if (order.status === "Delivered") {
-      setCommentData(item); // Lưu trữ dữ liệu đánh giá
-      setShowComment(true); // Hiển thị thành phần đánh giá
+      setCommentData(item);
+      setShowComment(true);
     }
   };
 
@@ -62,7 +62,7 @@ const Order = () => {
             </div>
 
             <div className="col l-10 my-purchase">
-              {data.map((order, index) => (
+              {data.reverse().map((order, index) => (
                 <ul key={index} className="list-purchase">
                   <li className="list-purchase--heading">
                     <div className="list-purchase--heading--status">
@@ -70,7 +70,9 @@ const Order = () => {
                         className="list-purchase--heading--status--icon"
                         icon={faTruck}
                       />
-                      Giao hàng thành công
+                      {order.status === "Delivered"
+                        ? "Giao hàng thành công"
+                        : "Đang giao hàng"}
                     </div>
 
                     <div className="list-purchase--heading--status--detail">

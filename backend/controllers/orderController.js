@@ -24,7 +24,6 @@ const placeOrder = async (req, res) => {
         await userModel.findByIdAndUpdate(req.body.userId, {cartData:[]})
 
         for (const item of order.items) {
-            console.log(item._id)
             await productModel.findByIdAndUpdate(item._id, {
                 $inc: {selling: item.Quantity}
             });

@@ -48,7 +48,7 @@ const Cart = () => {
                                 </div>
 
                                 <div className="col l-1">
-                                  <p className='col l-12' onClick={() => removeFromCart(item._id, cart.size)} className='cross'>x</p>
+                                  <p className='col l-12 cross' onClick={() => removeFromCart(item._id, cart.size)}>x</p>
                                 </div>
                               </div>
                               <hr />

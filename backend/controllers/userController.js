@@ -88,7 +88,7 @@ const getUser = async (req, res) => {
 const modifyUser = async (req, res) => {
     let image_filename = "";
     if (req.file) {
-        image_filename = req.file.filename;
+        image_filename = `${req.file.filename}`;
     }
 
     try {
