@@ -82,7 +82,7 @@ const Product = () => {
                   </div>
                   <div className="product__information--heading--description">
                     <span className="product__information--heading--description">
-                      {data.description}
+                      Mô tả: {data.description}
                     </span>
                   </div>
                 </div>
@@ -232,9 +232,9 @@ const Product = () => {
                     <div key={index} className="Product-Rating__List">
                       <div className="Product-Rating__Main">
                         <div className="Product-Rating__Main--Name">
-                          {rate.userId}
+                          Người dùng: {rate.userId}
                         </div>
-                        <div className="">{rate.rating}</div>
+                        <div className="">Đánh giá: {rate.rating} sao</div>
                         <div className="Product-Rating__Main--Comment">
                           {rate.comment}
                         </div>

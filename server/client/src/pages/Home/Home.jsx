@@ -26,7 +26,10 @@ const Home = () => {
   }, []);
 
   const handleCategoryClicks = (selectedCategory) => {
-    setSex(selectedCategory);
+    setCategory(selectedCategory);
+  };
+  const handleSexClicks = (selectedSex) => {
+    setSex(selectedSex);
   };
 
   return (
@@ -38,24 +41,39 @@ const Home = () => {
               <h3 className="Category__Heading">Danh mục</h3>
               <ul className="Category--List">
                 <li className={`Category--Item ${sex === "All" ? "Category--Item--Active" : ""}`}>
-                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("All")}>Giới tính</div>
+                  <div className="Category--Item__Link" onClick={() => handleSexClicks("All")}>Giới tính</div>
                 </li>
                 <li className={`Category--Item ${sex === "Men" ? "Category--Item--Active" : ""}`}>
-                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Men")}>Thời trang nam</div>
+                  <div className="Category--Item__Link" onClick={() => handleSexClicks("Men")}>Thời trang nam</div>
                 </li>
                 <li className={`Category--Item ${sex === "Women" ? "Category--Item--Active" : ""}`}>
-                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Women")}>Thời trang nữ</div>
+                  <div className="Category--Item__Link" onClick={() => handleSexClicks("Women")}>Thời trang nữ</div>
                 </li>
               </ul>
               <ul className="Category--List">
                 <li className={`Category--Item ${category === "All" ? "Category--Item--Active" : ""}`}>
                   <div className="Category--Item__Link" onClick={() => handleCategoryClicks("All")}>Loại</div>
                 </li>
-                <li className={`Category--Item ${category === "Men" ? "Category--Item--Active" : ""}`}>
-                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Men")}>Áo ngắn</div>
+                <li className={`Category--Item ${category === "Shirt" ? "Category--Item--Active" : ""}`}>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Shirt")}>Shirt</div>
                 </li>
-                <li className={`Category--Item ${category === "Women" ? "Category--Item--Active" : ""}`}>
-                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Women")}>Quần dài</div>
+                <li className={`Category--Item ${category === "T-shirt" ? "Category--Item--Active" : ""}`}>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("T-shirt")}>T-shirt</div>
+                </li>
+                <li className={`Category--Item ${category === "Quần Short" ? "Category--Item--Active" : ""}`}>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Quần Short")}>Quần Short</div>
+                </li>
+                <li className={`Category--Item ${category === "Quần dài" ? "Category--Item--Active" : ""}`}>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Quần dài")}>Quần dài</div>
+                </li>
+                <li className={`Category--Item ${category === "Áo khoác" ? "Category--Item--Active" : ""}`}>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Áo khoác")}>Áo khoác</div>
+                </li>
+                <li className={`Category--Item ${category === "Áo Len" ? "Category--Item--Active" : ""}`}>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Áo Len")}>Áo Len</div>
+                </li>
+                <li className={`Category--Item ${category === "Áo Hoodie" ? "Category--Item--Active" : ""}`}>
+                  <div className="Category--Item__Link" onClick={() => handleCategoryClicks("Áo Hoodie")}>Áo Hoodie</div>
                 </li>
               </ul>
             </nav>
@@ -65,7 +83,7 @@ const Home = () => {
             <div className="Home--Products">
               <div className="row sm--gutter">
                 {data.map((item, index) => {
-                  if (sex === "All" || sex === item.sex) {
+                  if ((sex === "All" || sex === item.sex) && (category === "All" || category === item.category)) {
                     const isNewRow = index % 5 === 0 && index !== 0;
                     return (
                       <React.Fragment key={index}>

@@ -45,10 +45,11 @@
 }
 
 .product__information--heading--name {
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: var(--text-color);
     line-height: 2rem;
     max-height: 4rem;
+    font-weight: 600;
 
     overflow: hidden;
     display: -webkit-box;
@@ -58,12 +59,13 @@
 }
 
 .product__information--heading--description {
-    margin-top: 5px;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .product__information--heading--description {
     font-size: 1.6rem;
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .product__information--rating {
