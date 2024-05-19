@@ -78,7 +78,11 @@ const Add=({url}) => {
                         <select name='category' value={data.category} onChange={onChangeHandler}>
                             <option value="Shirt">Shirt</option>
                             <option value="T-shirt">T-shirt</option>
-                            <option value="Short">Short</option>
+                            <option value="Quần Short">Quần Short</option>
+                            <option value="Quần dài">Quần dài</option>
+                            <option value="Áo khoác">Áo khoác</option>
+                            <option value="Áo Len">Áo Len</option>
+                            <option value="Áo Hoodie">Áo Hoodie</option>
                         </select>
                     </div>
                     <div className="add-price flex-col">
