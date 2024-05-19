@@ -62,7 +62,7 @@ const Orders = ({url}) => {
                         <p>Items : {order.items.length}</p>
                         <p>VND {order.amount}</p>
                         <select onChange={(event) => statusHandler(event, order._id)} value={order.status}>
-                            <option value="Product processing">Food processing</option>
+                            <option value="Product processing">Product processing</option>
                             <option value="Out of delivery">Out of delivery</option>
                             <option value="Delivered">Delivered</option>
                         </select>
