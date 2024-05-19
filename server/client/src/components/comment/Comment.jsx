@@ -21,20 +21,25 @@ const Comment = ({ setShowComment, commentData }) => {
       rating: rating.rate,
     };
 
-    let response = await axios.post(
-      `${url}/api/product/${commentData._id}`,
-      ratingData,
-      { headers: { token } }
-    );
-    if (response.data.success) {
-      toast.success(response.data.message);
-      setShowComment(false);
-    } else {
-      console.log("Error");
+    try {
+      let response = await axios.post(
+        `${url}/api/product/${commentData._id}`,
+        ratingData,
+        { headers: { token } }
+      );
+      if (response.data.success) {
+        toast.success(response.data.message);
+        setShowComment(false);
+      } else {
+        toast.error("Failed to post comment.");
+      }
+    } catch (error) {
+      toast.error("An error occurred while posting the comment.");
+      console.error("Error posting comment:", error);
     }
   };
 
-  const onChangeHandler = async (event) => {
+  const onChangeHandler = (event) => {
     const name = event.target.name;
     let value = event.target.value;
 
