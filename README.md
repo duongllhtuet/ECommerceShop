@@ -37,20 +37,35 @@ Hướng dẫn này sẽ giúp bạn có một bản sao của ECommerceShop ch�
 2. Cài đặt các dependencies:
    - Truy cập vào thư mục server: `cd server`
    - Cài đặt dependencies cho server: `npm install`
-   - Truy cập vào thư mục client: `cd ../client`
+   - Truy cập vào thư mục client: `cd /client`
    - Cài đặt dependencies cho client: `npm install`
 3. Khởi động server:
    - Truy cập vào thư mục server: `cd server`
    - Dùng câu lệnh `npm run server` để khởi động server
    - Server sẽ chạy trên `http://localhost:4000`
 4. Khởi động client:
-   - Truy cập vào thư mục client: `cd ../client`
+   - Truy cập vào thư mục client: `cd /client`
    - Dùng câu lệnh `npm run dev` để khởi động client
    - Client sẽ chạy trên `http://localhost:5173`
 
 ## Usage
 
 Hướng dẫn sử dụng cơ bản và các chức năng chính của ECommerceShop.
+
+### Quản lý Sản phẩm
+
+- Thêm/Chỉnh sửa/Xóa Sản phẩm: Quản trị viên có thể thêm mới, chỉnh sửa và xóa bỏ thông tin sản phẩm trên trang web.
+- Xem chi tiết Sản phẩm: Người dùng có thể xem thông tin chi tiết của sản phẩm bao gồm tên, giá, mô tả, hình ảnh, số sản phẩm đã bán và đánh giá từ người dùng khác.
+
+### Quản lý Người dùng
+
+- Đăng ký/Đăng nhập: Người dùng có thể tạo tài khoản mới và đăng nhập vào hệ thống để sử dụng các tính năng của trang web.
+- Quản lý Hồ sơ Người dùng: Người dùng có thể cập nhật thông tin cá nhân gồm tên, địa chỉ, số điện thoại, ảnh cá nhân và xem lịch sử mua hàng của mình.
+
+### Giỏ hàng và Thanh toán
+
+- Quản lý Giỏ hàng: Người dùng có thể thêm, xóa hoặc cập nhật số lượng sản phẩm trong giỏ hàng của mình.
+- Thanh toán: Hệ thống xử lý các giao dịch thanh toán một cách an toàn và bảo mật.
 
 ## Đóng Góp
 
