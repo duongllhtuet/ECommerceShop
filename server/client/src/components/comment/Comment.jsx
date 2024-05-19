@@ -2,12 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Comment.css";
 import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
-import React, { useContext, useEffect, useState } from 'react'
-import './Comment.css'
-import { StoreContext } from '../../context/StoreContext';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Comment = ({ setShowComment, commentData }) => {
   const { url, token } = useContext(StoreContext);
@@ -26,18 +22,19 @@ const Comment = ({ setShowComment, commentData }) => {
     };
 
     let response = await axios.post(
-      url + `/api/product/${commentData._id}`,
+      `${url}/api/product/${commentData._id}`,
       ratingData,
       { headers: { token } }
     );
     if (response.data.success) {
+      toast.success(response.data.message);
       setShowComment(false);
     } else {
       console.log("Error");
     }
   };
 
-  const onChangeHandler = (event) => {
+  const onChangeHandler = async (event) => {
     const name = event.target.name;
     let value = event.target.value;
 
@@ -48,13 +45,6 @@ const Comment = ({ setShowComment, commentData }) => {
       if (value > 5) {
         value = 5;
       }
-        let response = await axios.post(url + `/api/product/${commentData._id}`, ratingData, {headers: {token}});
-        if (response.data.success) {
-            toast.success(response.data.message)
-            setShowComment(false)
-        } else {
-            console.log("Error")
-        }
     }
 
     setRating((rating) => ({ ...rating, [name]: value }));
