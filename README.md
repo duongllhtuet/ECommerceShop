@@ -35,7 +35,7 @@ Hướng dẫn này sẽ giúp bạn có một bản sao của ECommerceShop ch�
 
 1. Clone dự án về máy của bạn: `git clone https://github.com/yourusername/ECommerceShop.git`
 2. Cài đặt các dependencies: `npm install`
-3. Khởi động server: `npm start`
+3. Khởi động server: `npm `
 4. Truy cập vào `http://localhost:3000` trong trình duyệt web của bạn.
 
 ## Usage
@@ -49,6 +49,11 @@ Vui lòng đọc [hướng dẫn đóng góp](CONTRIBUTING.md) để biết thê
 ## Bản Phát Hành
 
 Liệt kê và mô tả các phiên bản phát hành của ECommerceShop.
+
+## Demo và Báo Cáo
+
+- [Demo Sản Phẩm](https://drive.google.com/drive/folders/14VCYSZzuCpsX3oBiUTa81Ff3sKRaLGD-?hl=vi) 
+- [Báo Cáo](https://drive.google.com/drive/folders/14VCYSZzuCpsX3oBiUTa81Ff3sKRaLGD-?hl=vi)
 
 ## Tác Giả
 
