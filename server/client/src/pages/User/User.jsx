@@ -145,6 +145,7 @@ const Profile = () => {
                       name="email"
                       value={data.email}
                       onChange={onChangeHandler}
+                      disabled
                     />
                   </div>
 
