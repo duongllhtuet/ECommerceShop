@@ -34,9 +34,19 @@ Hướng dẫn này sẽ giúp bạn có một bản sao của ECommerceShop ch�
 ### Cài Đặt
 
 1. Clone dự án về máy của bạn: `git clone https://github.com/yourusername/ECommerceShop.git`
-2. Cài đặt các dependencies: `npm install`
-3. Khởi động server: `npm `
-4. Truy cập vào `http://localhost:3000` trong trình duyệt web của bạn.
+2. Cài đặt các dependencies:
+   - Truy cập vào thư mục server: `cd server`
+   - Cài đặt dependencies cho server: `npm install`
+   - Truy cập vào thư mục client: `cd ../client`
+   - Cài đặt dependencies cho client: `npm install`
+3. Khởi động server:
+   - Truy cập vào thư mục server: `cd server`
+   - Dùng câu lệnh `npm run server` để khởi động server
+   - Server sẽ chạy trên `http://localhost:4000`
+4. Khởi động client:
+   - Truy cập vào thư mục client: `cd ../client`
+   - Dùng câu lệnh `npm run dev` để khởi động client
+   - Client sẽ chạy trên `http://localhost:5173`
 
 ## Usage
 
@@ -52,8 +62,8 @@ Liệt kê và mô tả các phiên bản phát hành của ECommerceShop.
 
 ## Demo và Báo Cáo
 
-- [Demo Sản Phẩm](https://drive.google.com/drive/folders/14VCYSZzuCpsX3oBiUTa81Ff3sKRaLGD-?hl=vi) 
-- [Báo Cáo](https://drive.google.com/drive/folders/14VCYSZzuCpsX3oBiUTa81Ff3sKRaLGD-?hl=vi)
+- [Demo Sản Phẩm](https://drive.google.com/link-to-demo)  
+- [Báo Cáo](https://drive.google.com/link-to-report)
 
 ## Tác Giả
 
@@ -78,4 +88,4 @@ Dự án này được cấp phép theo [Tên Giấy Phép](LICENSE) - xem tệp
 
 ## Liên Hệ
 
-Nếu bạn có bất kỳ câu hỏi hoặc đề xuất, hãy liên hệ qua email của 22022641@vnuvn.edu.vn.
+Nếu bạn có bất kỳ câu hỏi hoặc đề xuất, hãy liên hệ qua email của 22022641@vnu.edu.vn.
