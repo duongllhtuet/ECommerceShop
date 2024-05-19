@@ -32,16 +32,16 @@
     display: flex;
   }
   
-  input[type="text"] {
+  .multi-fields-input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    margin-bottom: 20px; /* Thêm khoảng cách dưới */
+    margin-bottom: 20px; 
   }
   
-  input[type="text"]:focus {
+  .multi-fields-input:focus {
     border-color: #007bff;
     outline: none;
   }

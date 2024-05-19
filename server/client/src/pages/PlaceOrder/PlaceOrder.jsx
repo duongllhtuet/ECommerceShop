@@ -98,13 +98,13 @@ const PlaceOrder = () => {
       <div className="col l-7 place-order-left">
         <p className="title">Delivery Information</p>
         <div className="multi-fields">
-          <input required name='name' onChange={ onChangeHandler } value={ data.name } type="text" placeholder='Name' />
+          <input className='multi-fields-input' required name='name' onChange={ onChangeHandler } value={ data.name } type="text" placeholder='Name' />
         </div>
-        <input required name='street' onChange={ onChangeHandler } value={ data.street } type="text" placeholder='Street' />
+        <input className='multi-fields-input' required name='street' onChange={ onChangeHandler } value={ data.street } type="text" placeholder='Street' />
         <div className="multi-fields">
-          <input required name='city' onChange={ onChangeHandler } value={ data.city } type="text" placeholder='City' />
+          <input className='multi-fields-input' required name='city' onChange={ onChangeHandler } value={ data.city } type="text" placeholder='City' />
         </div>
-        <input required name='phone' onChange={ onChangeHandler } value={ data.phone } type="text" placeholder='Phone' />
+        <input className='multi-fields-input' required name='phone' onChange={ onChangeHandler } value={ data.phone } type="text" placeholder='Phone' />
       </div>
       <div className="col l-5 place-order-right">
         <div className="cart-total">
