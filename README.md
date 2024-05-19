@@ -34,19 +34,11 @@ Hướng dẫn này sẽ giúp bạn có một bản sao của ECommerceShop ch�
 ### Cài Đặt
 
 1. Clone dự án về máy của bạn: `git clone https://github.com/yourusername/ECommerceShop.git`
-2. Cài đặt các dependencies:
+2. Khởi động server:
    - Truy cập vào thư mục server: `cd server`
-   - Cài đặt dependencies cho server: `npm install`
-   - Truy cập vào thư mục client: `cd /client`
-   - Cài đặt dependencies cho client: `npm install`
-3. Khởi động server:
-   - Truy cập vào thư mục server: `cd server`
+   - Dùng câu lệnh `npm run build` để cài đặt thư viện
    - Dùng câu lệnh `npm run server` để khởi động server
    - Server sẽ chạy trên `http://localhost:4000`
-4. Khởi động client:
-   - Truy cập vào thư mục client: `cd /client`
-   - Dùng câu lệnh `npm run dev` để khởi động client
-   - Client sẽ chạy trên `http://localhost:5173`
 
 ## Usage
 
