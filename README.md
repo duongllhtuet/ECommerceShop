@@ -77,8 +77,8 @@ Liệt kê và mô tả các phiên bản phát hành của ECommerceShop.
 
 ## Demo và Báo Cáo
 
-- [Demo Sản Phẩm](https://drive.google.com/link-to-demo)  
-- [Báo Cáo](https://drive.google.com/link-to-report)
+- [Demo Sản Phẩm](https://drive.google.com/drive/folders/14VCYSZzuCpsX3oBiUTa81Ff3sKRaLGD-?usp=sharing)  
+- [Báo Cáo](https://drive.google.com/drive/folders/14VCYSZzuCpsX3oBiUTa81Ff3sKRaLGD-?usp=sharing)
 
 ## Tác Giả
 
