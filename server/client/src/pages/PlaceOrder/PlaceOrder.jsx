@@ -92,8 +92,10 @@ const PlaceOrder = () => {
   }, [token])
 
   return (
-    <form onSubmit={placeOrder} className='place-order'>
-      <div className="place-order-left">
+    <div className="grid wide">
+
+    <form onSubmit={placeOrder} className='row sm--gutter place-order'>
+      <div className="col l-7 place-order-left">
         <p className="title">Delivery Information</p>
         <div className="multi-fields">
           <input required name='name' onChange={ onChangeHandler } value={ data.name } type="text" placeholder='Name' />
@@ -104,7 +106,7 @@ const PlaceOrder = () => {
         </div>
         <input required name='phone' onChange={ onChangeHandler } value={ data.phone } type="text" placeholder='Phone' />
       </div>
-      <div className="place-order-right">
+      <div className="col l-5 place-order-right">
         <div className="cart-total">
           <h2>Cart Totals</h2>
           <div>
@@ -127,6 +129,7 @@ const PlaceOrder = () => {
         </div>
       </div>
     </form>
+    </div>
   )
 }
 
