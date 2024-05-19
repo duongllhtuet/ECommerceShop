@@ -48,18 +48,18 @@ const Cart = () => {
                                 </div>
 
                                 <div className="col l-1">
-                                  <p className='col l-12' onClick={() => removeFromCart(item._id, cart.size)} className='cross'>x</p>
+                                  <p className='col l-12 cross' onClick={() => removeFromCart(item._id, cart.size)}>x</p>
                                 </div>
                               </div>
                               <hr />
                           </div>
                       );
                   }
-                  return null; // Tránh trường hợp không có phần tử phù hợp
+                  return null;
               });
               return cartElements;
           }
-          return null; // Trường hợp cartItems không tồn tại hoặc không có phần tử
+          return null;
       })}
 
       <div>
@@ -90,4 +90,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default Cart;
