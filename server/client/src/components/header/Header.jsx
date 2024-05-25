@@ -117,7 +117,29 @@ const Header = ({ setShowLogin }) => {
             </li>
           </ul>
 
-          <ul className="header__navbar--list">
+          <ul className="header__navbar--list" id="modify--on--mobile">
+            <li className="header__navbar--list--language">
+              <span className="header__navbar--list--language--name">
+              {currentLanguage === "vi" ? "Tiếng Việt" : "English"}
+              </span>
+
+              <ul className="header__navbar--list--language--selection">
+                <li
+                  className="header__navbar--list--language--selection--name"
+                  onClick={() => changeLanguage("vi")}
+                >
+                  Tiếng Việt
+                </li>
+
+                <li
+                  className="header__navbar--list--language--selection--name"
+                  onClick={() => changeLanguage("en")}
+                >
+                  English
+                </li>
+              </ul>
+            </li>
+
             {!token ? (
               <>
                 <li
@@ -191,7 +213,11 @@ const Header = ({ setShowLogin }) => {
 
           <div className="Header__Logo hide--on--tablet">
             <a href="/" className="Header__Logo--Link">
-              <svg viewBox="0 0 192 65" className="Header__Logo--Img">
+              <svg
+                viewBox="0 0 192 65"
+                className="Header__Logo--Img"
+                id="modify--on--mobile"
+              >
                 <g fillRule="evenodd">
                   <path
                     fill="#fff"
