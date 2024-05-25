@@ -1,61 +1,74 @@
 .Footer {
-    border-top: 4px solid var(--primary-color);
-    padding-top: 16px;
-    background-color: var(--white-color); }
-  
-  .Footer__Heading {
-    font-size: 1.4rem;
+  border-top: 4px solid var(--primary-color);
+  padding-top: 16px;
+  background-color: var(--white-color);
+}
+
+.Footer__Heading {
+  font-size: 1.4rem;
     text-transform: uppercase;
-    color: var(--text-color); }
-  
-  .Footer__List {
-    padding-left: 0;
-    list-style: none; }
-  
-  .Footer--Item__Link {
-    display: flex;
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: #737373;
-    padding: 4px 0;
-    align-items: center; }
-  
-  .Footer--Item__Link:hover {
-    color: var(--primary-color); }
-  
-  .Footer--Item__Icon {
-    font-size: 1.6rem;
-    margin: -1px 8px 0 0; }
-  
-  .Footer__Download {
-    display: flex; }
-  
-  .Footer__Download--Qr {
-    width: 80px;
-    border: 1px solid var(--border-color);
-    height: 80px; }
-  
-  .Footer__Download--Apps {
-    margin-left: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; }
-  
-  .Footer__Download--App--Img {
-    height: 16px; }
-  
-  .Footer__Download--App--Link {
-    text-decoration: none;
-    color: transparent; }
-  
-  .Footer__Bottom {
-    background-color: #F5F5F5;
-    padding: 8px 0;
-    margin-top: 24px; }
-  
-  .Footer__Text {
-    margin: 0;
-    font-size: 1.2rem;
-    text-align: center;
-    color: #737373; }
-  
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.Footer__List {
+  padding-left: 0;
+  list-style: none;
+}
+
+.Footer--Item__Link {
+  display: flex;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #737373;
+  padding: 4px 0;
+  align-items: center;
+}
+
+.Footer--Item__Link:hover {
+  color: var(--primary-color);
+}
+
+.Footer--Item__Icon {
+  font-size: 1.6rem;
+  margin: -1px 8px 0 0;
+}
+
+.Footer__Download {
+  display: flex;
+}
+
+.Footer__Download--Qr {
+  width: 80px;
+  border: 1px solid var(--border-color);
+  height: 80px;
+}
+
+.Footer__Download--Apps {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Footer__Download--App--Img {
+  height: 16px;
+}
+
+.Footer__Download--App--Link {
+  text-decoration: none;
+  color: transparent;
+}
+
+.Footer__Bottom {
+  background-color: #F5F5F5;
+  padding: 8px 0;
+  margin-top: 24px;
+}
+
+.Footer__Text {
+  margin: 0;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #737373;
+}

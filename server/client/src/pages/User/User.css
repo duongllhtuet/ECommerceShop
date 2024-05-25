@@ -300,7 +300,7 @@ input[type="radio"] {
 .User-Information_Description--Detail--Modify {
     flex: 0 0 40%;
     font-weight: bold;
-    text-align: right;
+    text-align: left;
 }
 
 .User-Information_Description--Detail--Modify--Option {
@@ -319,6 +319,7 @@ input[type="radio"] {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+    padding: 14px 0 0 80px;
     flex-direction: column;
 }
 
@@ -347,9 +348,9 @@ input[type="radio"] {
     /* height: 32px; */
 }
 
-.User-Infomation__Description--Save button {
+.User-Information__Description--Save#modify button {
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -357,5 +358,5 @@ input[type="radio"] {
 }
 
 .User-Infomation__Description--Save button:hover {
-    background-color: #218838;
+    background-color: var(--primary-color);
 }

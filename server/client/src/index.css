@@ -1363,7 +1363,8 @@ i.Home--Product--Item__Like--Icon--Fill {
 
 .Footer__List {
   padding-left: 0;
-  list-style: none;
+    list-style: none;
+    margin-bottom: 10px;
 }
 
 .Footer--Item__Link {
@@ -1398,7 +1399,7 @@ i.Home--Product--Item__Like--Icon--Fill {
   margin-left: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .Footer__Download--App--Img {

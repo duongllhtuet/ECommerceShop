@@ -96,7 +96,7 @@ const Profile = () => {
     <div className="profile">
       <div className="grid wide">
         <div className="row container">
-          <div className="col l-3 side-bar">
+          <div className="col l-3 m-0 c-0 side-bar">
             <a
               onClick={() => navigate("/profile")}
               className="sidebar-child current"
@@ -110,7 +110,7 @@ const Profile = () => {
             </a>
           </div>
 
-          <div className="col l-9 User-Information">
+          <div className="col l-9 m-12 c-12 User-Information">
             <div className="User-Information__Title">Hồ Sơ Của Tôi</div>
             <div className="User-Information__Overview">
               Quản lý thông tin hồ sơ để bảo mật tài khoản
@@ -118,13 +118,13 @@ const Profile = () => {
 
             <form onSubmit={SaveProfile}>
               <div className="row sm--gutter">
-                <div className="col l-8 User-Information__Description">
+                <div className="col l-8 m-8 c-12 User-Information__Description">
                   <div className="row sm--gutter User-Information_Description--Detail">
-                    <div className="col l-5 User-Information_Description--Detail--Modify ">
+                    <div className="col l-5 m-5 c-12 User-Information_Description--Detail--Modify ">
                       Tên
                     </div>
                     <input
-                      className="col l-7 User-Information__Description--Detail--Modify--Input"
+                      className="col l-7 m-7 c-12 User-Information__Description--Detail--Modify--Input"
                       required
                       type="text"
                       name="name"
@@ -134,13 +134,13 @@ const Profile = () => {
                   </div>
 
                   <div className="row sm--gutter User-Information_Description--Detail">
-                    <div className="col l-5 User-Information_Description--Detail--Modify">
+                    <div className="col l-5 m-5 c-12 User-Information_Description--Detail--Modify">
                       Email
                     </div>
 
                     <input
                       required
-                      className="col l-7 User-Information__Description--Detail--Modify--Input"
+                      className="col l-7 m-7 c-12 User-Information__Description--Detail--Modify--Input"
                       type="email"
                       name="email"
                       value={data.email}
@@ -150,12 +150,12 @@ const Profile = () => {
                   </div>
 
                   <div className="row sm--gutter User-Information_Description--Detail">
-                    <div className="col l-5 User-Information_Description--Detail--Modify">
+                    <div className="col l-5 m-5 c-12 User-Information_Description--Detail--Modify">
                       Số điện thoại
                     </div>
                     <input
                       required
-                      className="col l-7 User-Information__Description--Detail--Modify--Input"
+                      className="col l-7 m-7 c-12 User-Information__Description--Detail--Modify--Input"
                       type="tel"
                       name="phone"
                       value={data.phone}
@@ -164,12 +164,12 @@ const Profile = () => {
                   </div>
 
                   <div className="row sm--gutter User-Information__Description--Detail User-Infomation__Description--Address2">
-                    <div className="col l-5 User-Information_Description--Detail--Modify User-Information_Description--Detail--Modify--Option">
+                    <div className="col l-5 m-5 c-12 User-Information_Description--Detail--Modify User-Information_Description--Detail--Modify--Option">
                       Địa chỉ
                     </div>
 
                     <input
-                      className="col l-7 User-Information__Description--Detail--Modify--Input"
+                      className="col l-7 m-7 c-12 User-Information__Description--Detail--Modify--Input"
                       type="text"
                       name="address"
                       value={data.address}
@@ -178,7 +178,7 @@ const Profile = () => {
                   </div>
                 </div>
 
-                <div className="col l-4 User-Information__Update-Avatar" style={{ paddingLeft: "80px", paddingTop: "14px" }}>
+                <div className="col l-4 m-4 c-12 User-Information__Update-Avatar">
                   <img
                     src={imageURL ? imageURL : assets.defaultAvatar}
                     className="User-Infomation__Update-Avatar--Avatar"
@@ -202,8 +202,8 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="User-Infomation__Description--Save">
-                <button type="submit" style={{ height: "32px", width: "78px" }}>
+              <div className="User-Information__Description--Save" id="modify">
+                <button type="submit" style={{  width: "78px" }}>
                   Lưu
                 </button>
               </div>

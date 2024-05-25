@@ -95,7 +95,7 @@ const PlaceOrder = () => {
     <div className="grid wide">
 
     <form onSubmit={placeOrder} className='row sm--gutter place-order'>
-      <div className="col l-7 place-order-left">
+      <div className="col l-7 m-7 c-7 place-order-left">
         <p className="title">Delivery Information</p>
         <div className="multi-fields">
           <input className='multi-fields-input' required name='name' onChange={ onChangeHandler } value={ data.name } type="text" placeholder='Name' />
@@ -106,7 +106,7 @@ const PlaceOrder = () => {
         </div>
         <input className='multi-fields-input' required name='phone' onChange={ onChangeHandler } value={ data.phone } type="text" placeholder='Phone' />
       </div>
-      <div className="col l-5 place-order-right">
+      <div className="col l-5 m-5 c-5 place-order-right">
         <div className="cart-total">
           <h2>Cart Totals</h2>
           <div>

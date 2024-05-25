@@ -6,6 +6,11 @@ import { StoreContext } from "../../context/StoreContext.jsx";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faLinkedin,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Header = ({ setShowLogin }) => {
   const { token, setToken, url } = useContext(StoreContext); // lay gia tri tu context
@@ -15,12 +20,13 @@ const Header = ({ setShowLogin }) => {
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");
-    setImage(false)
+    setImage(false);
     navigate("/");
   };
 
   const [image, setImage] = useState(false);
   const [user, setUser] = useState({});
+  const [currentLanguage, setCurrentLanguage] = useState("vi")
 
   const getUser = async () => {
     const response = await axios.post(
@@ -43,11 +49,16 @@ const Header = ({ setShowLogin }) => {
     getUser();
   }, [token]);
 
+  const changeLanguage = (lang) => {
+    setCurrentLanguage(lang);
+    // Add any additional functionality needed to change the language in your application
+  };
+
   return (
     <header className="header">
       <div className="grid wide">
-        <nav className="header__navbar hide--on--mobile--tablet">
-          <ul className="header__navbar--list">
+        <nav className="header__navbar">
+          <ul className="header__navbar--list hide--on--mobile">
             <li className="header__navbar--item header__navbar--item--separate header__navbar--has-qr">
               Vào cửa hàng trên ứng dụng UET-Shop
               {/* Header__QR_Code */}
@@ -91,16 +102,44 @@ const Header = ({ setShowLogin }) => {
               </span>
 
               <a href="" className="header__navbar--icon--link">
-                <i className="header__navbar--icon fa-brands fa-facebook"></i>
+                <FontAwesomeIcon
+                  className="header__navbar--icon"
+                  icon={faFacebook}
+                />
               </a>
 
               <a href="" className="header__navbar--icon--link">
-                <i className="header__navbar--icon fa-brands fa-instagram"></i>
+                <FontAwesomeIcon
+                  className="header__navbar--icon"
+                  icon={faInstagram}
+                />
               </a>
             </li>
           </ul>
 
-          <ul className="header__navbar--list">
+          <ul className="header__navbar--list" id="modify--on--mobile">
+            <li className="header__navbar--list--language">
+              <span className="header__navbar--list--language--name">
+              {currentLanguage === "vi" ? "Tiếng Việt" : "English"}
+              </span>
+
+              <ul className="header__navbar--list--language--selection">
+                <li
+                  className="header__navbar--list--language--selection--name"
+                  onClick={() => changeLanguage("vi")}
+                >
+                  Tiếng Việt
+                </li>
+
+                <li
+                  className="header__navbar--list--language--selection--name"
+                  onClick={() => changeLanguage("en")}
+                >
+                  English
+                </li>
+              </ul>
+            </li>
+
             {!token ? (
               <>
                 <li
@@ -165,13 +204,20 @@ const Header = ({ setShowLogin }) => {
         </nav>
 
         <div className="Header__With--Search">
-          <label htmlFor="mobile--search--checkbox" className="header__mobile--search">
+          <label
+            htmlFor="mobile--search--checkbox"
+            className="header__mobile--search"
+          >
             <i className="header__mobile--search--icon fa-solid fa-magnifying-glass"></i>
           </label>
 
           <div className="Header__Logo hide--on--tablet">
             <a href="/" className="Header__Logo--Link">
-              <svg viewBox="0 0 192 65" className="Header__Logo--Img">
+              <svg
+                viewBox="0 0 192 65"
+                className="Header__Logo--Img"
+                id="modify--on--mobile"
+              >
                 <g fillRule="evenodd">
                   <path
                     fill="#fff"
@@ -190,8 +236,15 @@ const Header = ({ setShowLogin }) => {
           />
 
           <div className="Header__Cart">
-            <div className="Header__Cart--Wrap" onClick={() => navigate("/cart")}>
-            <FontAwesomeIcon className="Header__Cart--Icon" icon={faCartShopping} />
+            <div
+              className="Header__Cart--Wrap"
+              id="modify--on--mobile"
+              onClick={() => navigate("/cart")}
+            >
+              <FontAwesomeIcon
+                className="Header__Cart--Icon"
+                icon={faCartShopping}
+              />
             </div>
           </div>
         </div>
