@@ -47,7 +47,7 @@ const Order = () => {
       <div className="purchase">
         <div className="grid wide">
           <div className="row sm--gutter container">
-            <div className="col l-2 sidebar">
+            <div className="col l-2 m-0 c-0 sidebar">
               <a onClick={() => navigate("/profile")} className="sidebar-child">
                 <i className="fa-regular fa-user"></i>
                 <p>My Account</p>
@@ -61,7 +61,7 @@ const Order = () => {
               </a>
             </div>
 
-            <div className="col l-10 my-purchase">
+            <div className="col l-10 m-12 c-12 my-purchase">
               {data.reverse().map((order, index) => (
                 <ul key={index} className="list-purchase">
                   <li className="list-purchase--heading">

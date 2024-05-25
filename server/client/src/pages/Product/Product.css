@@ -145,6 +145,7 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     cursor: pointer;
+    height: 100%;
 }
 
 .product__option--size--option--selected {
@@ -180,11 +181,11 @@
 }
 
 .product__information--btn {
-    text-align: center;
+    text-align: right;
     margin: 20px 0;
+    margin-right: 14px;
     width: 100%;
     /* color: rgba(240, 4, 4, 0.283); */
-
 }
 
 .Btn.Btn--normal--product__information {

@@ -64,7 +64,7 @@ const Product = () => {
       <div className="grid wide">
         <div className="row product__container">
           <div className="product__information">
-            <div className="col l-5">
+            <div className="col l-5 m-5 c-5">
               <img
                 src={url + "/images/" + data.picture}
                 alt=""
@@ -72,9 +72,9 @@ const Product = () => {
               />
             </div>
 
-            <div className="col l-7">
+            <div className="col l-7 m-7 c-7">
               <div className="row">
-                <div className="col l-12">
+                <div className="col l-12 m-12 c-12">
                   <div className="product__information--heading">
                     <span className="product__information--heading--name">
                       {data.name}
@@ -89,7 +89,7 @@ const Product = () => {
               </div>
 
               <div className="row">
-                <div className="col l-12">
+                <div className="col l-12 m-12 c-12">
                   <div className="product__information--rating">
                     <div className="product__information--rating--number">
                       <span className="product__information--rated--number">
@@ -115,7 +115,7 @@ const Product = () => {
               </div>
 
               <div className="row">
-                <div className="col l-12">
+                <div className="col l-12 m-12 c-12">
                   <div className="product__information--price">
                     <span className="product__information--price__discounted">
                       ₫ {data.price}
@@ -125,14 +125,14 @@ const Product = () => {
               </div>
 
               <div className="row">
-                <div className="col l-12">
+                <div className="col l-12 m-12 c-12">
                   <div className="row sm--gutter product__option--size">
-                    <div className="col l-4 product__option--size--name">
+                    <div className="col l-4 m-12 product__option--size--name">
                       Size
                     </div>
 
-                    <div className="col l-8 product__option--size--select">
-                      <div className="col l-4">
+                    <div className="col l-8 m-12 c-12 product__option--size--select">
+                      <div className="col l-4 m-4 c-4">
                         <button
                           onClick={() => setSize((prev) => "M")}
                           className={
@@ -145,7 +145,7 @@ const Product = () => {
                         </button>
                       </div>
 
-                      <div className="col l-4">
+                      <div className="col l-4 m-4 c-4">
                         <button
                           onClick={() => setSize((prev) => "L")}
                           className={
@@ -158,7 +158,7 @@ const Product = () => {
                         </button>
                       </div>
 
-                      <div className="col l-4">
+                      <div className="col l-4 m-4 c-4">
                         <button
                           onClick={() => setSize((prev) => "XL")}
                           className={
@@ -175,13 +175,13 @@ const Product = () => {
                 </div>
               </div>
               <div className="row">
-                <div className="col l-12">
+                <div className="col l-12 m-12 c-12">
                   <div className="product__option--order--item">
-                    <div className="col l-4 product__option--order--item--title">
+                    <div className="col l-4 m-4 c-4 product__option--order--item--title">
                       Số lượng
                     </div>
 
-                    <div className="col l-8 product__option--order--item--quantity">
+                    <div className="col l-8 m-8 c-8 product__option--order--item--quantity">
                       <input
                         type="number"
                         className="product__option--order--item--quantity--input"
@@ -217,7 +217,7 @@ const Product = () => {
             {data.ratings && data.ratings.length > 0 ? (
               <>
                 <div className="row product--rating--score">
-                  <div className="col c-3">
+                  <div className="col l-12 m-12 c-12">
                     <div className="Product-Rating__Score">
                       <div className="Product-Rating__Score--Score">
                         <span className="Product-Rating__Score--Score--highlight">

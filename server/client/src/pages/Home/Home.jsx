@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import "./Home.css";
-import { assets } from "../../assets/assets";
 import { StoreContext } from "../../context/StoreContext.jsx";
 import ProductItem from "../../components/productItem/ProductItem.jsx";
 import axios from "axios";
@@ -9,6 +8,7 @@ const Home = () => {
   const [category, setCategory] = useState("All");
   const [sex, setSex] = useState("All");
   const [data, setData] = useState([]);
+  const [productsPerRow, setProductsPerRow] = useState(5); // default for large screens
 
   const { url } = useContext(StoreContext);
 
@@ -28,9 +28,38 @@ const Home = () => {
   const handleCategoryClicks = (selectedCategory) => {
     setCategory(selectedCategory);
   };
+
   const handleSexClicks = (selectedSex) => {
     setSex(selectedSex);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setProductsPerRow(5); // large screens
+      } else if (window.innerWidth >= 740 && window.innerWidth <= 1023) {
+        setProductsPerRow(3); // medium screens (tablets)
+      } else {
+        setProductsPerRow(2); // small screens (mobiles)
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const filteredData = data.filter(
+    (item) =>
+      (sex === "All" || sex === item.sex) &&
+      (category === "All" || category === item.category)
+  );
+
+  const chunkedData = [];
+  for (let i = 0; i < filteredData.length; i += productsPerRow) {
+    chunkedData.push(filteredData.slice(i, i + productsPerRow));
+  }
 
   return (
     <div className="App__Container">
@@ -81,30 +110,22 @@ const Home = () => {
 
           <div className="col l-10 m-12 c-12">
             <div className="Home--Products">
-              <div className="row sm--gutter">
-                {data.map((item, index) => {
-                  if ((sex === "All" || sex === item.sex) && (category === "All" || category === item.category)) {
-                    const isNewRow = index % 5 === 0 && index !== 0;
-                    return (
-                      <React.Fragment key={index}>
-                        {isNewRow && <div className="row sm--gutter"></div>}
-                        <div className="col l-2-4 m-4 c-6">
-                          <ProductItem
-                            id={item._id}
-                            name={item.name}
-                            description={item.description}
-                            price={item.price}
-                            image={item.picture}
-                            selling={item.selling}
-                          />
-                        </div>
-                      </React.Fragment>
-                    );
-                  } else {
-                    return null;
-                  }
-                })}
-              </div>
+              {chunkedData.map((row, rowIndex) => (
+                <div className="row sm--gutter" key={rowIndex}>
+                  {row.map((item, index) => (
+                    <div className="col l-2-4 m-4 c-6" key={index}>
+                      <ProductItem
+                        id={item._id}
+                        name={item.name}
+                        description={item.description}
+                        price={item.price}
+                        image={item.picture}
+                        selling={item.selling}
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </div>
